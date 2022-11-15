@@ -44,7 +44,7 @@
                 <span style="color:red"> {{ $message }}</span>
             @enderror
         </div>
-
+        {{-- Lỗi --}}
         <div class="mb-3">
             <label for="formFileMultiple" class="form-label">Hình ảnh</label>
             <input class="form-control" type="file" id="formFileMultiple" name="ten_hinh_anh" multiple="multiple">
@@ -59,7 +59,6 @@
                 <span style="color:red"> {{ $message }}</span>
             @enderror
         </div>
-
         <div class="align-middle text-end">
             <a onclick="return confirm('Bạn có muốn lưu chỉnh sửa lần này?')">
                 <button type="submit" class="btn btn-outline-success">Lưu</button>

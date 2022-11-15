@@ -23,19 +23,6 @@
                         <input type="text" class="form-control" id="tai_khoan" placeholder="Tìm theo tên tài khoản"
                             name="tai_khoan">
                     </div>
-                    <div class="col-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="Tìm theo email"
-                            name="email">
-                    </div>
-                    {{--  <div class="mp-3">
-                        <select class="form-select" aria-label="Default select example" name="tai_khoan">
-                            <option value="0">Người dùng</option>
-                            @foreach ($dsNguoiDung as $value)
-                                <option value="{{ $value->id }}">{{ $value->tai_khoan }}</option>
-                            @endforeach
-                        </select>
-                    </div> --}}
                     <div class="col-1 my-4">
                         <button type="submit" class="btn btn-success">Tìm</button>
                     </div>

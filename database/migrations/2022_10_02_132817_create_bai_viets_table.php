@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('danh_muc_id');
             $table->string('tieu_de',255);
             $table->longText('noi_dung');
-            $table->dateTime('thoi_gian')->default(time().now());
+            $table->dateTime('thoi_gian');
             $table->string('khu_vuc');
             $table->integer('trang_thai')->default(0);
             $table->timestamps();

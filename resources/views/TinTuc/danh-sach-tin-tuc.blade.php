@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'bài viết')
+@section('title', 'tin tức')
 
 @section('TT')
     Danh sách tin tức
@@ -13,19 +13,17 @@
             alter('{{ session('success') }}');
         </script>
     @endif
-    <form action="{{ Route('TinTuc.dsTinTuc') }}" method="POST">
+
+    {{-- POST --}}
+    <form action="{{ Route('TinTuc.timKiemTinTuc') }}" method="POST">
         @csrf
         <div class="card-header pb-0">
             <div class="row align-items-start">
                 <div class="col-4">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Tin Tức</label>
-                        <input type="text" class="form-control" id="tim-kiem-bai-viet" placeholder="Tìm theo tên tin tức"
-                            name="TenBaiViet">
-                    </div>
-                    <div class="mp-3">
-                        <select class="form-select" aria-label="Default select example" name="tintuc">
-                            <option value="0">Tin tức</option>
+                        <label for="exampleFormControlInput1" class="form-label">Tin tức</label>
+                        <select class="form-select" aria-label="Default select example" name="loai_tin_tuc_id">
+                            <option value="0">Tất cả</option>
                             @foreach ($lsLoai as $value)
                                 <option value="{{ $value->id }}">{{ $value->ten_tin_tuc }}</option>
                             @endforeach

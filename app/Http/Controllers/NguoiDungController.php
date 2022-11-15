@@ -6,6 +6,7 @@ use App\Http\Requests\StoreNguoiDungRequest;
 use App\Http\Requests\UpdateNguoiDungRequest;
 use App\Models\NguoiDung;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,31 +56,28 @@ class NguoiDungController extends Controller
      */
     public function store(StoreNguoiDungRequest $request)
     {
-        $NguoiDung = new NguoiDung();
-        $NguoiDung->fill([
-            'tai_khoan' => $request->input('tai_khoan'),
-            'mat_khau' => $request->input('mat_khau'),
-            'ho_ten' => $request->input('ho_ten'),
-            'so_dien_thoai' => $request->input('so_dien_thoai'),
-            'email' => $request->input('email'),
-            'anh_dai_dien' => $request->input('anh_dai_dien'),
-            'phan_quyen' => $request->input('phan_quyen'),
-        ]);
-        $NguoiDung->save();
-        /*   if ($request->hasFile('anh_dai_dien')) {
-        $NguoiDung->anh_dai_dien = $request->file('anh_dai_dien')->store('/img/hinhanh_nguoidung/' . $NguoiDung->id);
-        } */
         if ($request->hasFile('anh_dai_dien')) {
             $file = $request->file('anh_dai_dien');
             $fileType = $file->getClientOriginalExtension('anh_dai_dien');
             if ($fileType == "jpg" || $fileType == 'png' || $fileType == 'jpeg') {
                 $AvatarName = 'avatar-' . time() . '.' . $fileType;
                 $file->move('uploads/avatar/', $AvatarName);
-                //$urlAvatar = 'uploads/avatar/' . $AvatarName;
+                $urlAvatar = 'uploads/avatar/' . $AvatarName;
             } else {
                 return back()->with("error", "Phải là file ảnh (jpg , png ,jpeg)");
-            }}
-
+            }
+        }
+        $NguoiDung = NguoiDung::create([
+            'tai_khoan' => $request->tai_khoan,
+            'mat_khau' => Hash::make($request->password),
+            'ho_ten' => $request->ho_ten,
+            'anh_dai_dien' => ($urlAvatar),
+            'phan_quyen' => 1,
+            'trang_thai_ho_ten' => 1,
+            'trang_thai_email' => 1,
+            'trang_thai_so_dien_thoai' => 1,
+            'trang_thai_nguoi_dung' => 1,
+        ]);
         return Redirect::route('NguoiDung.dsNguoiDung', ['id' => $NguoiDung->id]);
     }
 
@@ -143,7 +141,6 @@ class NguoiDungController extends Controller
         }
         } */
 
-
         return Redirect::route('NguoiDung.dsNguoiDung', ['id' => $NguoiDung->id])->with('success', 'Sửa thành công');
     }
 
@@ -164,8 +161,8 @@ class NguoiDungController extends Controller
     {
         $tentaikhoan = request()->tai_khoan;
         $email = request()->email;
-        $dsNguoiDung = NguoiDung::Where('tai_khoan','like','%'.$tentaikhoan.'%')->Where('email','like','%'.$email.'%')->paginate(10);
+        $dsNguoiDung = NguoiDung::Where('tai_khoan', 'like', '%' . $tentaikhoan . '%')->Where('email', 'like', '%' . $email . '%')->paginate(10);
 
-        return View('NguoiDung.danh-sach-nguoi-dung',['dsNguoiDung' => $dsNguoiDung]);
+        return View('NguoiDung.danh-sach-nguoi-dung', ['dsNguoiDung' => $dsNguoiDung]);
     }
 }

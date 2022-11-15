@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('loai_tin_tucs', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_tin_tuc');
+            $table->string('ten_tin_tuc')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

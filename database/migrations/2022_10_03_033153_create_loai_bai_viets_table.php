@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('loai_bai_viets', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_bai_viet');
+            $table->string('ten_bai_viet')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

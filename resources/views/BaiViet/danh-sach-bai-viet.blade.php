@@ -18,19 +18,26 @@
         <div class="card-header pb-0">
             <div class="row align-items-start">
                 <div class="col-4">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Bài viết</label>
-                        <input type="text" class="form-control" id="tieu_de" placeholder="Tìm theo tiêu đề"
-                            name="tieu_de">
-                    </div>
                     <div class="mp-3">
-                        <select class="form-select" aria-label="Default select example" name="loai_tin_tuc_id">
-                            <option value="0">Tin tức</option>
+                        <label for="exampleFormControlInput1" class="form-label">Tin tức</label>
+                        <select class="form-select" aria-label="Default select example" name="loai_bai_viet_id">
+                            <option value="0">Tất cả</option>
                             @foreach ($LoaiBaiViet as $value)
                                 <option value="{{ $value->id }}">{{ $value->ten_bai_viet }}</option>
                             @endforeach
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Danh mục</label>
+                        <select class="form-select" aria-label="Default select example" name="ten_danh_muc">
+                            <option value="0">Tất cả</option>
+                            @foreach ($DanhMuc as $value)
+                                <option value="{{ $value->id }}">{{ $value->ten_danh_muc }}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
                 </div>
 
                 <div class="col-2 my-4">
@@ -126,7 +133,7 @@
                                         <button type="button" class="btn btn-secondary">Chi tiết</button>
                                     </a>
 
-                                  {{--   <a href="{{ route('BaiViet.suaBaiViet', ['id' => $value->id]) }}">
+                                    {{--   <a href="{{ route('BaiViet.suaBaiViet', ['id' => $value->id]) }}">
                                         <button type="button" class="btn btn-success">Sửa</button>
                                     </a>
  --}}

@@ -40,7 +40,6 @@ Route::middleware('auth')->group(function () {
                 Route::get('/them-bai-viet', [BaiVietController::class, 'create'])->name('themBaiViet');
                 Route::post('/them-bai-viet', [BaiVietController::class, 'store'])->name('themBaiVietPost');
                 Route::get('/xoa-bai-viet/{id}', [BaiVietController::class, 'destroy'])->name('xoaBaiViet');
-
                 route::post('/timKiemBaiViet', [BaiVietController::class, 'search'])->name('timKiemBaiViet');
                 //load danh sách xoá mềm
             });
@@ -64,7 +63,6 @@ Route::middleware('auth')->group(function () {
                 Route::get('/them-tuc-tin', [TinTucController::class, 'create'])->name('themTinTuc');
                 Route::post('/them-tin-tuc', [TinTucController::class, 'store'])->name('themTinTucPost');
                 Route::get('/xoa-tin-tuc/{id}', [TinTucController::class, 'destroy'])->name('xoaTinTuc');
-
                 route::post('/timKiemTinTuc', [TinTucController::class, 'search'])->name('timKiemTinTuc');
                 //load danh sách xoá mềm
             });

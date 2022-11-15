@@ -32,8 +32,8 @@
                         <span><b>Hình ảnh: </b></span>
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                                @foreach ($dsHinh as $item)
-                                    <img class="img-reponsive" src="{{ asset($item->ten_hinh_anh) }}" height="100"
+                                @foreach ($dsHinh as $value)
+                                    <img class="img-reponsive" src="{{ asset($value->ten_hinh_anh) }}" height="100"
                                         width="100">
                                 @endforeach
                             </div>

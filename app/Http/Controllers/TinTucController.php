@@ -85,6 +85,7 @@ class TinTucController extends Controller
             'noi_dung' => 'Nội dung',
         ];
         $request->validate($rule, $message, $attribute);
+
         $TinTuc = new TinTuc();
         $TinTuc->fill([
             'nguoi_dung_id' => Auth::user()->id,
@@ -94,11 +95,12 @@ class TinTucController extends Controller
             'thoi_gian' => $request->input('thoi_gian'),
         ]);
         $TinTuc->save();
+
         //Đúng
         if ($request->hasFile('image')) {
             $files = $request->file('image');
             foreach ($files as $file) {
-                $imageName = time() . '.' . $file->getClientOriginalName();
+                $imageName = 'uploads/image_tintuc/' . time() . '.' . $file->getClientOriginalName();
                 $request['tin_tuc_id'] = $TinTuc->id;
                 $request['ten_hinh_anh'] = $imageName;
                 $request['trang_thai'] = 1;
@@ -130,14 +132,17 @@ class TinTucController extends Controller
      */
     public function show($id)
     {
-        $TinTuc = TinTuc::find($id);
-        $dsHinh = HinhAnhTinTuc::where('tin_tuc_id', '=', $id)->get();
-        foreach ($dsHinh as $hinh) {
+         $TinTuc = TinTuc::find($id);
+         /* $dsHinh = HinhAnhTinTuc::join('tin_tucs', 'tin_tucs.id', '=', 'hinh_anh_tin_tucs.tin_tuc_id')
+        ->select('hinh_anh_tin_tucs.ten_hinh_anh')
+        ->where('hinh_anh_tin_tucs.id', '=', $id); */
+       $dsHinh = HinhAnhTinTuc::where('tin_tuc_id', '=', $id)->get();
+       /* foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
         }
         $NguoiDung = NguoiDung::all();
-        $lsLoai = LoaiTinTuc::all();
-        return view('TinTuc.chi-tiet-tin-tuc', ['TinTuc' => $TinTuc, 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai, 'dsHinh' => $dsHinh]);
+        $lsLoai = LoaiTinTuc::all(); */
+        return view('TinTuc.chi-tiet-tin-tuc', ['TinTuc' => $TinTuc/* , 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai*/, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -262,5 +267,29 @@ class TinTucController extends Controller
         }
         $TinTuc->delete();
         return Redirect::route('TinTuc.dsTinTuc')->with('success', 'Xóa thành công');
+    }
+    public function search()
+    {
+        $tintuc = request()->loai_tin_tuc_id;
+        if ($tintuc == 0) {
+            $TinTuc = TinTuc::join('nguoi_dungs', 'nguoi_dungs.id', '=', 'tin_tucs.nguoi_dung_id')
+                ->join('loai_tin_tucs', 'tin_tucs.loai_tin_tuc_id', '=', 'loai_tin_tucs.id')
+                ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'thoi_gian')
+                ->orderby('tin_tucs.thoi_gian')
+            //->where('tin_tucs.loai_tin_tuc_id', '=', $tintuc)
+                ->paginate(15);
+
+        } else {
+            $TinTuc = TinTuc::join('nguoi_dungs', 'nguoi_dungs.id', '=', 'tin_tucs.nguoi_dung_id')
+                ->join('loai_tin_tucs', 'tin_tucs.loai_tin_tuc_id', '=', 'loai_tin_tucs.id')
+                ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'thoi_gian')
+                ->orderby('tin_tucs.thoi_gian')
+                ->where('tin_tucs.loai_tin_tuc_id', '=', $tintuc)
+                ->paginate(15);
+        }
+        $lsLoai = LoaiTinTuc::all();
+
+        return View('TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $TinTuc, 'lsLoai' => $lsLoai]);
+
     }
 }
