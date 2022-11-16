@@ -4,21 +4,21 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/admin/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/admin/img/favicon.png">
     <title>
         @yield('title')
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/admin/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <link id="pagestyle" href="/assets/admin/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     @yield('CSS')
 </head>
 
@@ -31,7 +31,7 @@
                     aria-hidden="true" id="iconSidenav"></i>
                 <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
                     target="_blank">
-                    <img src="/assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+                    <img src="/assets/admin/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
                     <span class="ms-1 font-weight-bold">ANCT</span>
                 </a>
             </div>
@@ -428,7 +428,7 @@
             <div class="sidenav-footer mx-3 ">
                 <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
                     <div class="full-background"
-                        style="background-image: url('/assets/img/curved-images/white-curved.jpeg')"></div>
+                        style="background-image: url('/assets/admin/img/curved-images/white-curved.jpeg')"></div>
                     <div class="card-body text-start p-3 w-100">
                         <div
                             class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
@@ -502,7 +502,7 @@
                                         <a class="dropdown-item border-radius-md" href="{{ route('dang-xuat') }}">
                                             <div class="d-flex py-1">
                                                 <div class="my-auto">
-                                                    <img src="/assets/img/icon/logout.png"
+                                                    <img src="/assets/admin/img/icon/logout.png"
                                                         class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
@@ -527,7 +527,7 @@
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="my-auto">
-                                                    <img src="/assets/img/small-logos/logo-spotify.svg"
+                                                    <img src="/assets/admin/img/small-logos/logo-spotify.svg"
                                                         class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
@@ -605,11 +605,11 @@
     @yield('Them')
 
 
-    <script src="/assets/js/core/popper.min.js"></script>
-    <script src="/assets/js/core/bootstrap.min.js"></script>
-    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="/assets/admin/ckeditor/ckeditor.js"></script>
+    <script src="/assets/admin/js/core/popper.min.js"></script>
+    <script src="/assets/admin/js/core/bootstrap.min.js"></script>
+    <script src="/assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/assets/admin/admin/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'ckeditor');
     </script>
@@ -640,7 +640,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="/assets/admin/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
     @yield('script')
 </body>
 

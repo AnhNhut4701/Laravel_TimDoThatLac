@@ -51,7 +51,7 @@ class BaiVietController extends Controller
         $LoaiBaiViet = LoaiBaiViet::all();
         $DanhMuc = DanhMuc::all();
 
-        return view('BaiViet.danh-sach-bai-viet', ['dsBaiViet' => $dsBaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.BaiViet.danh-sach-bai-viet', ['dsBaiViet' => $dsBaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
     }
 
     /**
@@ -67,7 +67,7 @@ class BaiVietController extends Controller
         $LoaiBaiViet = LoaiBaiViet::all();
         $dsHinh = HinhAnhBaiViet::all();
         $DanhMuc = DanhMuc::all();
-        return view('BaiViet.them-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.BaiViet.them-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
     }
 
     /**
@@ -153,7 +153,7 @@ class BaiVietController extends Controller
         $NguoiDung = NguoiDung::all();
         $LoaiBaiViet = LoaiBaiViet::all();
         $DanhMuc = DanhMuc::all();
-        return view('BaiViet.chi-tiet-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.BaiViet.chi-tiet-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -173,7 +173,7 @@ class BaiVietController extends Controller
         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
         }
-        return view('BaiViet.chi-tiet-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.BaiViet.chi-tiet-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -274,6 +274,6 @@ class BaiVietController extends Controller
         }
         $LoaiBaiViet = LoaiBaiViet::all();
         $DanhMuc = DanhMuc::all();
-        return View('BaiViet.danh-sach-bai-viet', ['dsBaiViet' => $BaiViet, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc]);
+        return View('admin.BaiViet.danh-sach-bai-viet', ['dsBaiViet' => $BaiViet, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc]);
     }
 }

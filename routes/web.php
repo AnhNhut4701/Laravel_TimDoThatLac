@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TinTucController;
+use App\Http\Controllers\TrangChuController;
 use Illuminate\Support\Facades\Route;
 
 /*

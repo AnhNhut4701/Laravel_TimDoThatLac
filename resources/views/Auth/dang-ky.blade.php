@@ -19,21 +19,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/admin/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/admin/img/favicon.png">
     <title>
         Soft UI Dashboard by Creative Tim
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/admin/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/assets/admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <link id="pagestyle" href="/assets/admin/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -60,9 +60,9 @@
                             class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center "
                             id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
                             Pages
-                            <img src=" /assets/img/down-arrow-dark.svg  " alt="down-arrow"
+                            <img src=" /assets/admin/img/down-arrow-dark.svg  " alt="down-arrow"
                                 class="arrow ms-1 d-lg-block d-none">
-                            <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow"
+                            <img src="/assets/admin/img/down-arrow-dark.svg" alt="down-arrow"
                                 class="arrow ms-1 d-lg-none d-block">
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation dropdown-xl p-3 border-radius-xl mt-0 mt-lg-3"
@@ -617,9 +617,9 @@
                             class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center "
                             id="dropdownMenuAccount" data-bs-toggle="dropdown" aria-expanded="false">
                             Authentication
-                            <img src=" /assets/img/down-arrow-dark.svg " alt="down-arrow"
+                            <img src=" /assets/admin/img/down-arrow-dark.svg " alt="down-arrow"
                                 class="arrow ms-1 d-lg-block d-none">
-                            <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow"
+                            <img src="/assets/admin/img/down-arrow-dark.svg" alt="down-arrow"
                                 class="arrow ms-1 d-lg-none d-block">
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation dropdown-lg border-radius-xl p-3 mt-0 mt-lg-3"
@@ -627,7 +627,7 @@
                             <div class="row d-none d-lg-flex">
                                 <div class="col-6">
                                     <div class="py-6 h-100 w-100 d-flex border-radius-lg position-relative dropdown-image"
-                                        style="background-image:url('/assets/img/curved-images/curved8.jpg')">
+                                        style="background-image:url('/assets/admin/img/curved-images/curved8.jpg')">
                                         <div class="mask bg-gradient-primary border-radius-lg"></div>
                                         <div
                                             class="d-flex justify-content-center align-items-center text-center text-white font-weight-bold w-100 z-index-1 flex-column">
@@ -646,7 +646,7 @@
                                             <a class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
                                                 id="dropdownSignIn">
                                                 <span>Sign In</span>
-                                                <img src="/assets/img/down-arrow.svg" alt="down-arrow"
+                                                <img src="/assets/admin/img/down-arrow.svg" alt="down-arrow"
                                                     class="arrow">
                                             </a>
                                             <div class="dropdown-menu mt-0 py-3 px-2"
@@ -670,7 +670,7 @@
                                             <a class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
                                                 id="dropdownSignUp">
                                                 <span>Sign Up</span>
-                                                <img src="/assets/img/down-arrow.svg" alt="down-arrow"
+                                                <img src="/assets/admin/img/down-arrow.svg" alt="down-arrow"
                                                     class="arrow">
                                             </a>
                                             <div class="dropdown-menu mt-0 py-3 px-2"
@@ -694,7 +694,7 @@
                                             <a class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
                                                 id="dropdownPasswordReset">
                                                 <span>Reset Password</span>
-                                                <img src="/assets/img/down-arrow.svg" alt="down-arrow"
+                                                <img src="/assets/admin/img/down-arrow.svg" alt="down-arrow"
                                                     class="arrow">
                                             </a>
                                             <div class="dropdown-menu mt-0 py-3 px-2"
@@ -718,7 +718,7 @@
                                             <a class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
                                                 id="dropdownLock">
                                                 <span>Lock</span>
-                                                <img src="/assets/img/down-arrow.svg" alt="down-arrow"
+                                                <img src="/assets/admin/img/down-arrow.svg" alt="down-arrow"
                                                     class="arrow">
                                             </a>
                                             <div class="dropdown-menu mt-0 py-3 px-2" aria-labelledby="dropdownLock">
@@ -741,7 +741,7 @@
                                             <a class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
                                                 id="dropdown2fa">
                                                 <span>2-Step Verification</span>
-                                                <img src="/assets/img/down-arrow.svg" alt="down-arrow"
+                                                <img src="/assets/admin/img/down-arrow.svg" alt="down-arrow"
                                                     class="arrow">
                                             </a>
                                             <div class="dropdown-menu mt-0 py-3 px-2" aria-labelledby="dropdown2fa">
@@ -764,7 +764,7 @@
                                             <a class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
                                                 id="dropdownError">
                                                 <span>Error</span>
-                                                <img src="/assets/img/down-arrow.svg" alt="down-arrow"
+                                                <img src="/assets/admin/img/down-arrow.svg" alt="down-arrow"
                                                     class="arrow">
                                             </a>
                                             <div class="dropdown-menu mt-0 py-3 px-2" aria-labelledby="dropdownError">
@@ -884,9 +884,9 @@
                             class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center "
                             id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
                             Applications
-                            <img src=" /assets/img/down-arrow-dark.svg " alt="down-arrow"
+                            <img src=" /assets/admin/img/down-arrow-dark.svg " alt="down-arrow"
                                 class="arrow ms-1 d-lg-block d-none">
-                            <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow"
+                            <img src="/assets/admin/img/down-arrow-dark.svg" alt="down-arrow"
                                 class="arrow ms-1 d-lg-none d-block">
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3"
@@ -1019,9 +1019,9 @@
                             class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center "
                             id="dropdownMenuEcommerce" data-bs-toggle="dropdown" aria-expanded="false">
                             Ecommerce
-                            <img src=" /assets/img/down-arrow-dark.svg  " alt="down-arrow"
+                            <img src=" /assets/admin/img/down-arrow-dark.svg  " alt="down-arrow"
                                 class="arrow ms-1 d-lg-block d-none">
-                            <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow"
+                            <img src="/assets/admin/img/down-arrow-dark.svg" alt="down-arrow"
                                 class="arrow ms-1 d-lg-none d-block">
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation dropdown-lg p-3 border-radius-xl mt-0 mt-lg-3"
@@ -1294,9 +1294,9 @@
                             class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center "
                             id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
                             Docs
-                            <img src=" /assets/img/down-arrow-dark.svg " alt="down-arrow"
+                            <img src=" /assets/admin/img/down-arrow-dark.svg " alt="down-arrow"
                                 class="arrow ms-1 d-lg-block d-none">
-                            <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow"
+                            <img src="/assets/admin/img/down-arrow-dark.svg" alt="down-arrow"
                                 class="arrow ms-1 d-lg-none d-block">
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
@@ -1713,7 +1713,7 @@
     <!-- End Navbar -->
     <section class="min-vh-100 mb-8">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-            style="background-image: url('/assets/img/curved-images/curved14.jpg');">
+            style="background-image: url('/assets/admin/img/curved-images/curved14.jpg');">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
@@ -1930,10 +1930,10 @@
     </footer>
     <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
     <!--   Core JS Files   -->
-    <script src="/assets/js/core/popper.min.js"></script>
-    <script src="/assets/js/core/bootstrap.min.js"></script>
-    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/assets/admin/js/core/popper.min.js"></script>
+    <script src="/assets/admin/js/core/bootstrap.min.js"></script>
+    <script src="/assets/admin/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/admin/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -1946,7 +1946,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <script src="/assets/admin/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 </body>
 
 </html>

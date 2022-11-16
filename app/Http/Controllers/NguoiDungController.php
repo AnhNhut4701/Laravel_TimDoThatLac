@@ -34,7 +34,7 @@ class NguoiDungController extends Controller
     {
         $dsNguoiDung = NguoiDung::select('id', 'tai_khoan', 'mat_khau', 'ho_ten', 'so_dien_thoai', 'email', 'anh_dai_dien', 'phan_quyen')
             ->orderby('nguoi_dungs.id')->paginate(15);
-        return view('NguoiDung.danh-sach-nguoi-dung', ['dsNguoiDung' => $dsNguoiDung]);
+        return view('admin.NguoiDung.danh-sach-nguoi-dung', ['dsNguoiDung' => $dsNguoiDung]);
 
     }
 
@@ -45,7 +45,7 @@ class NguoiDungController extends Controller
      */
     public function create()
     {
-        return view('NguoiDung.them-nguoi-dung');
+        return view('admin.NguoiDung.them-nguoi-dung');
     }
 
     /**
@@ -89,7 +89,7 @@ class NguoiDungController extends Controller
      */
     public function show(NguoiDung $nguoiDung)
     {
-        return view('NguoiDung.danh-sach-nguoi-dung');
+        return view('admin.NguoiDung.danh-sach-nguoi-dung');
     }
     /**
      * Show the form for editing the specified resource.
@@ -102,7 +102,7 @@ class NguoiDungController extends Controller
         $NguoiDung = NguoiDung::find($id);
         $dsNguoiDung = NguoiDung::all();
 
-        return view('NguoiDung.sua-nguoi-dung', ['id' => $NguoiDung->id], ['NguoiDung' => $NguoiDung, 'dsNguoiDung' => $dsNguoiDung]);
+        return view('admin.NguoiDung.sua-nguoi-dung', ['id' => $NguoiDung->id], ['NguoiDung' => $NguoiDung, 'dsNguoiDung' => $dsNguoiDung]);
 
     }
 

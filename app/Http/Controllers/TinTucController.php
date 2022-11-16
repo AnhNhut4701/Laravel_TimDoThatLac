@@ -46,7 +46,7 @@ class TinTucController extends Controller
         }
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all();
-        return view('TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $dsTinTuc, 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai, 'dsHinh' => $dsHinh]);
+        return view('admin.TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $dsTinTuc, 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -59,7 +59,7 @@ class TinTucController extends Controller
     {
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all();
-        return view('TinTuc.them-tin-tuc', ['NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai]);
+        return view('admin.TinTuc.them-tin-tuc', ['NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai]);
 
     }
 
@@ -142,7 +142,7 @@ class TinTucController extends Controller
         }
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all(); */
-        return view('TinTuc.chi-tiet-tin-tuc', ['TinTuc' => $TinTuc/* , 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai*/, 'dsHinh' => $dsHinh]);
+        return view('admin.TinTuc.chi-tiet-tin-tuc', ['TinTuc' => $TinTuc/* , 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai*/, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -163,7 +163,7 @@ class TinTucController extends Controller
         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
         }
-        return view('TinTuc.sua-tin-tuc', ['lsLoai' => $lsLoai, 'TinTuc' => $TinTuc, 'NguoiDung' => $NguoiDung, /* 'LoaiTinTuc' => $LoaiTinTuc, */'dsHinh' => $dsHinh]);
+        return view('admin.TinTuc.sua-tin-tuc', ['lsLoai' => $lsLoai, 'TinTuc' => $TinTuc, 'NguoiDung' => $NguoiDung, /* 'LoaiTinTuc' => $LoaiTinTuc, */'dsHinh' => $dsHinh]);
 
         /*  $tinTuc = TinTuc::find($id);
     if (empty($tinTuc)) {
@@ -289,7 +289,7 @@ class TinTucController extends Controller
         }
         $lsLoai = LoaiTinTuc::all();
 
-        return View('TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $TinTuc, 'lsLoai' => $lsLoai]);
+        return View('admin.TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $TinTuc, 'lsLoai' => $lsLoai]);
 
     }
 }

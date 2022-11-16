@@ -14,7 +14,7 @@ class TrangChuController extends Controller
 
       public function index()
       {
-        return view('Dashboard.dashboard');
+        return view('admin.Dashboard.dashboard');
           //return view('trang-chu');
       }
 
