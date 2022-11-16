@@ -63,7 +63,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="logo">
                                     <a href="">
-                                        <img width="182" height=30" src="/storage/images/settings/63126f50dbf45.png"
+                                        <img width="182" height=30" src=""
                                             alt="logo">
                                     </a>
                                 </div>
