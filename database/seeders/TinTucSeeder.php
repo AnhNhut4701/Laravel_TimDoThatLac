@@ -21,8 +21,8 @@ class TinTucSeeder extends Seeder
                 "loai_tin_tuc_id" => 1,
                 "tieu_de" => "Mẹo tìm đồ{$i}",
                 "noi_dung" => "Tìm đồ{$i}",
-                "thoi_gian" => "2022-10-10",
-                "trang_thai"=>"1"
+                "khu_vuc" => "Quận 1, TP.HCM{$i}",
+                "created_at"=>"2022-11-18 13:26:03",
             ]);
         }
         for ($i = 4; $i <= 6; $i++) {
@@ -32,8 +32,8 @@ class TinTucSeeder extends Seeder
                 "loai_tin_tuc_id" => 2,
                 "tieu_de" => "Lừa đảo{$i}",
                 "noi_dung" => "Danh sách lừa đảo{$i}",
-                "thoi_gian" => "2022-10-10",
-                "trang_thai"=>"1"
+                "khu_vuc" => "Quận 1, TP.HCM{$i}",
+                "created_at"=>"2022-11-18 13:26:03",
             ]);
         }
     }

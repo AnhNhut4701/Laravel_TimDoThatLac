@@ -18,10 +18,10 @@ return new class extends Migration
             $table->foreignId('nguoi_dung_id');
             $table->foreignId('loai_bai_viet_id');
             $table->foreignId('danh_muc_id');
-            $table->string('tieu_de',255);
+            $table->string('tieu_de');
             $table->longText('noi_dung');
-            $table->dateTime('thoi_gian');
             $table->string('khu_vuc');
+            //Trạng thái = 0 : Chưa duyệt, 1: Đã duyệt, 2: Từ chối duyệt
             $table->integer('trang_thai')->default(0);
             $table->timestamps();
             $table->softDeletes();

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('loai_tin_tuc_id');
             $table->string('tieu_de');
             $table->longText('noi_dung');
-            $table->dateTime('thoi_gian');
+            $table->string('khu_vuc');
             $table->timestamps();
             $table->softDeletes();
         });

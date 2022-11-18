@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lien_hes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('nguoi_dung_id');
-            $table->string('noi_dung');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('lien_hes', function (Blueprint $table) {
+            $table->foreign('nguoi_dung_id')->references('id')->on('nguoi_dungs');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lien_hes');
+        Schema::table('lien_hes', function (Blueprint $table) {
+            //
+        });
     }
 };

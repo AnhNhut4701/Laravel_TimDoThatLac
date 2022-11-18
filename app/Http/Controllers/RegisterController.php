@@ -16,11 +16,11 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('Auth.dang-nhap');
+        return view('auth.signin');
     }
     public function dangKy()
     {
-        return view('Auth.dang-ky');
+        return view('auth.register');
     }
     public function xuLyDangKy(Request $request)
     {
@@ -85,7 +85,7 @@ class RegisterController extends Controller
         ]);
 
         $nguoiDung->save();
-        return View('Auth.dang-nhap')->with('success', 'Đăng ký thành công');
+        return View('auth.signin')->with('success', 'Đăng ký thành công');
     }
     /**
      * Show the form for creating a new resource.

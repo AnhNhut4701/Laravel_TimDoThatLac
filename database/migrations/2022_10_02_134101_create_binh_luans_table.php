@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('nguoi_dung_id');
            //$table->integer('parents')->nullable();
             $table->string('noi_dung');
-            //Trạng thái = 1 -> đã chỉnh sửa
-            $table->integer('trang_thai');
+            //Trạng thái = 0: Bình thường, 1: Đã chỉnh sửa
+            $table->integer('trang_thai')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

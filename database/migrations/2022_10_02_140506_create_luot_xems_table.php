@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('nguoi_dung_id');
             $table->foreignId('bai_viet_id');
-            $table->boolean('luot_xem');
+            $table->foreignId('tin_tuc_id');
+            $table->integer('luot_xem');
             $table->timestamps();
             $table->softDeletes();
         });

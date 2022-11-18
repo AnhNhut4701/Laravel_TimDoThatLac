@@ -8,6 +8,7 @@ use App\Models\HinhAnhTinTuc;
 use App\Models\LoaiTinTuc;
 use App\Models\NguoiDung;
 use App\Models\TinTuc;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -34,19 +35,19 @@ class TinTucController extends Controller
     }
     public function index()
     {
-        //dòng author bỏ
-        //$this->authorize('user');
         $dsTinTuc = TinTuc::join('nguoi_dungs', 'nguoi_dungs.id', '=', 'tin_tucs.nguoi_dung_id')
             ->join('loai_tin_tucs', 'tin_tucs.loai_tin_tuc_id', '=', 'loai_tin_tucs.id')
-            ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'thoi_gian')
-            ->orderby('tin_tucs.thoi_gian')->paginate(15);
+            ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'tin_tucs.khu_vuc', 'tin_tucs.created_at', 'tin_tucs.updated_at')
+            ->orderby('tin_tucs.created_at', 'desc')
+            ->orderby('tin_tucs.updated_at', 'desc')
+            ->paginate(15);
         $dsHinh = HinhAnhTinTuc::all();
         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
         }
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all();
-        return view('admin.TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $dsTinTuc, 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai, 'dsHinh' => $dsHinh]);
+        return view('admin.tintuc.index', ['dsTinTuc' => $dsTinTuc, 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -59,7 +60,7 @@ class TinTucController extends Controller
     {
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all();
-        return view('admin.TinTuc.them-tin-tuc', ['NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai]);
+        return view('admin.tintuc.index', ['NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai]);
 
     }
 
@@ -92,7 +93,8 @@ class TinTucController extends Controller
             'loai_tin_tuc_id' => $request->input('loai_tin_tuc_id'),
             'tieu_de' => $request->input('tieu_de'),
             'noi_dung' => $request->input('noi_dung'),
-            'thoi_gian' => $request->input('thoi_gian'),
+            'khu_vuc' => $request->input('khu_vuc'),
+            'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
         ]);
         $TinTuc->save();
 
@@ -109,19 +111,6 @@ class TinTucController extends Controller
             }
         }
         return Redirect::route('TinTuc.dsTinTuc', ['id' => $TinTuc->id]);
-
-        /*  $tinTuc = TinTuc::create([
-    'nguoi_dung_id'=> $request->nguoi_dung_id,
-    'tieu_de'=> $request->tieu_de,
-    'noi_dung'=>$request->noi_dung,
-    ]);
-    if(!empty($tinTuc))
-    {
-    #Quay về trang ds tin tức
-    return redirect()->route('TinTuc.danh-sach');
-    }
-    # Thêm không thành công
-    return "Lỗi: Thêm tin tức không thành công"; */
     }
 
     /**
@@ -132,17 +121,14 @@ class TinTucController extends Controller
      */
     public function show($id)
     {
-         $TinTuc = TinTuc::find($id);
-         /* $dsHinh = HinhAnhTinTuc::join('tin_tucs', 'tin_tucs.id', '=', 'hinh_anh_tin_tucs.tin_tuc_id')
-        ->select('hinh_anh_tin_tucs.ten_hinh_anh')
-        ->where('hinh_anh_tin_tucs.id', '=', $id); */
-       $dsHinh = HinhAnhTinTuc::where('tin_tuc_id', '=', $id)->get();
-       /* foreach ($dsHinh as $hinh) {
-            $this->fixImage($hinh);
+        $TinTuc = TinTuc::find($id);
+        $dsHinh = HinhAnhTinTuc::where('tin_tuc_id', '=', $id)->get();
+        /* foreach ($dsHinh as $hinh) {
+        $this->fixImage($hinh);
         }
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all(); */
-        return view('admin.TinTuc.chi-tiet-tin-tuc', ['TinTuc' => $TinTuc/* , 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai*/, 'dsHinh' => $dsHinh]);
+        return view('admin.tintuc.details', ['TinTuc' => $TinTuc/* , 'NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai*/, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -152,7 +138,6 @@ class TinTucController extends Controller
      * @param  \App\Models\TinTuc  $tinTuc
      * @return \Illuminate\Http\Response
      */
-    //public function edit(TinTuc $tinTuc)
     public function edit($id)
     {
         $TinTuc = TinTuc::find($id);
@@ -163,13 +148,8 @@ class TinTucController extends Controller
         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
         }
-        return view('admin.TinTuc.sua-tin-tuc', ['lsLoai' => $lsLoai, 'TinTuc' => $TinTuc, 'NguoiDung' => $NguoiDung, /* 'LoaiTinTuc' => $LoaiTinTuc, */'dsHinh' => $dsHinh]);
+        return view('admin.tintuc.edit', ['lsLoai' => $lsLoai, 'TinTuc' => $TinTuc, 'NguoiDung' => $NguoiDung, /* 'LoaiTinTuc' => $LoaiTinTuc, */'dsHinh' => $dsHinh]);
 
-        /*  $tinTuc = TinTuc::find($id);
-    if (empty($tinTuc)) {
-    return "Không tìm thấy tin tức với ID = '{id}'";
-    }
-    return view('TinTuc.cap-nhat', compact('tinTuc')); */
     }
 
     /**
@@ -179,7 +159,6 @@ class TinTucController extends Controller
      * @param  \App\Models\TinTuc  $tinTuc
      * @return \Illuminate\Http\Response
      */
-    //public function update(UpdateTinTucRequest $request, TinTuc $tinTuc)
     public function update(UpdateTinTucRequest $request, $id)
     {
         $rule = [
@@ -202,7 +181,8 @@ class TinTucController extends Controller
             'loai_tin_tuc_id' => $request->input('loai_tin_tuc_id'),
             'tieu_de' => $request->input('tieu_de'),
             'noi_dung' => $request->input('noi_dung'),
-            //'trang_thai' => 1,
+            'khu_vuc' => $request->input('khu_vuc'),
+            'updated_at' => Carbon::now('Asia/Ho_Chi_Minh'),
         ]);
         $TinTuc->save();
         $dsHinh = HinhAnhTinTuc::where('tin_tuc_id', '=', $id)->get();
@@ -238,18 +218,6 @@ class TinTucController extends Controller
         }
 
         return Redirect::route('TinTuc.dsTinTuc', ['id' => $TinTuc->id])->with('success', 'Sửa thành công');
-
-        /*  $tinTuc = TinTuc::find($id);
-    if (empty($tinTuc)) {
-    return "Không tìm thấy tin tức với ID = '{id}'";
-    }
-    #Cập nhật
-    $tinTuc->nguoi_dung_id = $request->nguoi_dung_id;
-    $tinTuc->tieu_de = $request->tieu_de;
-    $tinTuc->noi_Dung = $request->noi_dung;
-    $tinTuc->save();
-
-    return redirect()->route('TinTuc.danh-sach'); */
     }
 
     /**
@@ -258,7 +226,6 @@ class TinTucController extends Controller
      * @param  \App\Models\TinTuc  $tinTuc
      * @return \Illuminate\Http\Response
      */
-    //public function destroy(TinTuc $tinTuc)
     public function destroy($id)
     {
         $TinTuc = TinTuc::find($id);
@@ -274,22 +241,22 @@ class TinTucController extends Controller
         if ($tintuc == 0) {
             $TinTuc = TinTuc::join('nguoi_dungs', 'nguoi_dungs.id', '=', 'tin_tucs.nguoi_dung_id')
                 ->join('loai_tin_tucs', 'tin_tucs.loai_tin_tuc_id', '=', 'loai_tin_tucs.id')
-                ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'thoi_gian')
-                ->orderby('tin_tucs.thoi_gian')
-            //->where('tin_tucs.loai_tin_tuc_id', '=', $tintuc)
+                ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'tin_tucs.khu_vuc', 'tin_tucs.created_at', 'tin_tucs.updated_at')
+                ->orderby('tin_tucs.created_at', 'desc')
+                ->orderby('tin_tucs.updated_at', 'desc')
                 ->paginate(15);
-
         } else {
             $TinTuc = TinTuc::join('nguoi_dungs', 'nguoi_dungs.id', '=', 'tin_tucs.nguoi_dung_id')
                 ->join('loai_tin_tucs', 'tin_tucs.loai_tin_tuc_id', '=', 'loai_tin_tucs.id')
-                ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'thoi_gian')
-                ->orderby('tin_tucs.thoi_gian')
+                ->select('tin_tucs.id', 'nguoi_dungs.ho_ten', 'loai_tin_tucs.ten_tin_tuc', 'tieu_de', 'tin_tucs.noi_dung', 'tin_tucs.khu_vuc', 'tin_tucs.created_at', 'tin_tucs.updated_at')
+                ->orderby('tin_tucs.created_at', 'desc')
+                ->orderby('tin_tucs.updated_at', 'desc')
                 ->where('tin_tucs.loai_tin_tuc_id', '=', $tintuc)
                 ->paginate(15);
         }
         $lsLoai = LoaiTinTuc::all();
 
-        return View('admin.TinTuc.danh-sach-tin-tuc', ['dsTinTuc' => $TinTuc, 'lsLoai' => $lsLoai]);
+        return View('admin.tintuc.index', ['dsTinTuc' => $TinTuc, 'lsLoai' => $lsLoai]);
 
     }
 }

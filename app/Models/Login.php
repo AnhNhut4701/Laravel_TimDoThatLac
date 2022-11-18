@@ -10,6 +10,7 @@ class NguoiDung extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $primaryKey = "id";
     protected $table = "nguoi_dungs";
     protected $fillable = ["tai_khoan", "mat_khau", "ho_ten"];
 

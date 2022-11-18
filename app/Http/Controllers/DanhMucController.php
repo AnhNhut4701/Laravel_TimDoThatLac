@@ -23,7 +23,7 @@ class DanhMucController extends Controller
         $danhMuc = DanhMuc::find($id);
         $dsDanhMuc = DanhMuc::all();
 
-        return view('admin.DanhMuc.CRUD-danh-muc', ['dsDanhMuc' => $dsDanhMuc, 'danhMuc' => $danhMuc]);
+        return view('admin.danhmuc.crud', ['dsDanhMuc' => $dsDanhMuc, 'danhMuc' => $danhMuc]);
     }
 
     /**
@@ -86,7 +86,7 @@ class DanhMucController extends Controller
         $danhMuc = DanhMuc::find($id);
         $dsDanhMuc = DanhMuc::all();
 
-        return view('admin.DanhMuc.CRUD-danh-muc', ['dsDanhMuc' => $dsDanhMuc, 'danhMuc' => $danhMuc]);
+        return view('admin.danhmuc.crud', ['dsDanhMuc' => $dsDanhMuc, 'danhMuc' => $danhMuc]);
     }
 
     /**

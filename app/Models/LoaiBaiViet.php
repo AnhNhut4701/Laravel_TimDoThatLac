@@ -10,6 +10,7 @@ class LoaiBaiViet extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $primaryKey = "id";
     protected $table = "loai_bai_viets";
     protected $fillable = ["ten_bai_viet"];
     public function baiviet(){

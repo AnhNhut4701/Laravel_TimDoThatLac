@@ -24,14 +24,15 @@ class LoginController extends Controller
          //return view('TinTuc.meotimdo_canhbao');
          //return view('TinTuc.tintuc');
         //Vào trang chủ
-       return view('Home.home');
+       //return view('Home.home');
+       //return view('layouts.test');
         //Vào trang admin
-        //return view('admin.Dashboard.dashboard');
+        return view('admin.dashboard.index');
     }
 
     public function dangNhap()
     {
-        return view('Auth.dang-nhap');
+        return view('auth.signin');
     }
     public function xuLyDangNhap(Request $request)
     {
