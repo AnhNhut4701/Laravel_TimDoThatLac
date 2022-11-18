@@ -19,7 +19,7 @@ class NguoiDungSeeder extends Seeder
             echo "Add tài khoản {$i}";
             NguoiDung::create([
                 "ho_ten" => "Quản trị viên_{$i}",
-                "email" => "anhnhut@gmail.com",
+                "email" => "anhnhut{$i}@gmail.com",
                 "so_dien_thoai" => "12345{$i}",
                 "tai_khoan" => "admin_{$i}",
                 "mat_khau" => Hash::make("123456{$i}"),

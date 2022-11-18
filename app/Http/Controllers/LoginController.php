@@ -17,7 +17,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('Dashboard.dashboard');
+        return view('Trangchu.trang-chu-nguoi-dung');
     }
 
     public function dangNhap()
