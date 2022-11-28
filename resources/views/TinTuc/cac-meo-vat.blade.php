@@ -3,7 +3,7 @@
     <div class="both-sides-title">
         <h1>Tin tức</h1>
     </div>
-    @foreach ($dsTinTuc as $value)
+    @foreach ($dsMeoVat as $value)
         <div class="news">
             <div class="posts list">
                 <div class="title-mobile">
@@ -18,7 +18,8 @@
                 <div class="info">
 
                     <div class="title-desktop">
-                        <a rel="dofollow" href="">
+                        <a rel="dofollow"
+                            href="">
                             <h3>{{ $value->tieu_de }}</h3>
                         </a>
                     </div>
@@ -27,10 +28,17 @@
                     </div>
 
                     <div class="additional-info">
-                        <div class="published-at">
-                            <i class="fal fa-clock"></i>{{ $value->thoi_gian }}
+                        <div class="address">
+                            <i class="fal fa-map-marker-alt"></i>   {{ $value->khu_vuc }}
+                        </div>
+                        <div >
+                            <i class="fal fa-clock"></i>   {{ $value->created_at->diffForHumans() }}
+                        </div>
+                        <div class="cate">
+
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

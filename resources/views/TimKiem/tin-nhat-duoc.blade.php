@@ -22,7 +22,8 @@
     </div>
 
     <div class="posts-list">
-        @foreach ($dsTinMatDo as $value)
+        @foreach ($dsTinNhatDo as $value)
+
 
         <div class="posts list">
             <div class="title-mobile">
@@ -43,7 +44,7 @@
 
                 <div class="title-desktop">
                     <a rel="dofollow"
-                        href="">
+                        href="https://timdothatlac.vn/posts/roi-vi-va-giay-to-ten-truong-thi-bich-van-tu-duong-3-2-nha-hat-hoa-binh-ve-ktx-43-45-nguyen-chi-thanh">
                         <h3>{{ $value->tieu_de }}</h3>
                     </a>
                 </div>
@@ -53,10 +54,10 @@
 
                 <div class="additional-info">
                     <div class="address">
-                        <i class="fal fa-map-marker-alt"></i>   {{ $value->khu_vuc }}
+                        <i class="fal fa-map-marker-alt"></i>&nbsp; {{ $value->khu_vuc }}
                     </div>
-                    <div >
-                        <i class="fal fa-clock"></i>   {{ $value->created_at->diffForHumans() }}
+                    <div class="time">
+                        <i class="fal fa-clock"></i>&nbsp; {{ $value->created_at->diffForHumans() }}
                     </div>
                     <div class="cate">
 
@@ -64,7 +65,6 @@
                 </div>
             </div>
         </div>
-
         @endforeach
 
     </div>

@@ -1,0 +1,220 @@
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url("../webfonts/fa-light-300.eot");
+  src: url("../webfonts/fa-light-300.eot?#iefix") format("embedded-opentype"),
+  url("../webfonts/fa-light-300.woff2") format("woff2"),
+  url("../webfonts/fa-light-300.woff") format("woff"),
+  url("../webfonts/fa-light-300.ttf") format("truetype"),
+  url("../webfonts/fa-light-300.svg#fontawesome") format("svg");
+}
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-regular-400.eot");
+  src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+  url("../webfonts/fa-regular-400.woff2") format("woff2"),
+  url("../webfonts/fa-regular-400.woff") format("woff"),
+  url("../webfonts/fa-regular-400.ttf") format("truetype"),
+  url("../webfonts/fa-regular-400.svg#fontawesome") format("svg");
+}
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.eot");
+  src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+  url("../webfonts/fa-solid-900.woff2") format("woff2"),
+  url("../webfonts/fa-solid-900.woff") format("woff"),
+  url("../webfonts/fa-solid-900.ttf") format("truetype"),
+  url("../webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-brands-400.eot");
+  src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+  url("../webfonts/fa-brands-400.woff2") format("woff2"),
+  url("../webfonts/fa-brands-400.woff") format("woff"),
+  url("../webfonts/fa-brands-400.ttf") format("truetype"),
+  url("../webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg); }
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1); }
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1); }
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none; }
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400; }
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900; }
+
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400; }
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1; }
+
+.fal {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 300;
+}
+
+.fa-plus-circle:before {
+  content: "\f055"; }
+.fa-bell:before {
+  content: "\f0f3"; }
+.fa-user:before {
+  content: "\f007"; }
+.fa-upload:before {
+  content: "\f093"; }
+.fa-frown:before {
+  content: "\f119"; }
+.fa-cube:before {
+  content: "\f1b2"; }
+.fa-paw:before {
+  content: "\f1b0"; }
+.fa-cubes:before {
+  content: "\f1b3"; }
+.fa-search:before {
+  content: "\f002"; }
+.fa-newspaper:before {
+  content: "\f1ea"; }
+.fa-dollar-sign:before {
+  content: "\f155"; }
+.fa-info-square:before {
+  content: "\f30f"; }
+.fa-question:before {
+  content: "\f128"; }
+.fa-shield-alt:before {
+  content: "\f3ed"; }
+.fa-book:before {
+  content: "\f02d"; }
+.fa-map-marker-alt:before {
+  content: "\f3c5"; }
+.fa-heart:before {
+  content: "\f004"; }
+.fa-bars:before {
+  content: "\f0c9"; }
+.fa-facebook-square:before {
+  content: "\f082"; }
+.fa-twitter:before {
+  content: "\f099"; }
+.fa-linkedin:before {
+  content: "\f08c"; }
+.fa-pen:before {
+  content: "\f304"; }
+.fa-info-circle:before {
+  content: "\f05a"; }
+.fa-file-alt:before {
+  content: "\f15c"; }
+.fa-envelope:before {
+  content: "\f0e0"; }
+.fa-key:before {
+  content: "\f084"; }
+.fa-file:before {
+  content: "\f15b"; }
+.fa-circle:before {
+  content: "\f111"; }
+.fa-circle-notch:before {
+  content: "\f1ce"; }
+.fa-save:before {
+  content: "\f0c7"; }
+.fa-pen-alt:before {
+  content: "\f305"; }
+.fa-tachometer-alt:before {
+  content: "\f3fd"; }
+.fa-sign-out-alt:before {
+  content: "\f2f5"; }
+.fa-sign-in-alt:before {
+  content: "\f2f6"; }
+.fa-sync:before {
+  content: "\f021"; }
+.fa-times:before {
+  content: "\f00d"; }
+.fa-ellipsis-v-alt:before {
+  content: "\f39c"; }
+.fa-link:before {
+  content: "\f0c1"; }
+.fa-exclamation-triangle:before {
+  content: "\f071"; }
+.fa-trash:before {
+  content: "\f1f8"; }
+.fa-clock:before {
+  content: "\f017"; }
+.fa-bug:before {
+  content: "\f188"; }
+.fa-filter:before {
+  content: "\f0b0"; }
+.fa-phone:before {
+  content: "\f095"; }
+.fa-phone-alt:before {
+  content: "\f879"; }
+.fa-exclamation-triangle:before {
+  content: "\f071"; }
+.fa-plus-circle:before {
+  content: "\f055"; }
+.fa-eye:before {
+  content: "\f06e"; }
+.fa-paper-plane:before {
+  content: "\f1d8"; }
+.fa-shield-check:before {
+  content: "\f2f7"; }
+.fa-comment:before {
+  content: "\f075"; }
+.fa-handshake:before {
+  content: "\f2b5"; }
+.fa-home:before{
+    content:"\f015"; }

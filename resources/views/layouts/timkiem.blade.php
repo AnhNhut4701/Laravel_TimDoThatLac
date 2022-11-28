@@ -59,7 +59,7 @@
         content="Tìm đồ thất lac, đăng tin tìm đồ, nhặt được ví, nhặt được giấy tờ, rơi ví, rơi giấy tờ, thất lạc chó mèo,  bị mất thú cưng, bị lạc thú cứng" />
     <meta property="og:image" content="https://timdothatlac.vn/base_assets/images/anhbia_fb.png" />
     <meta name="csrf-token" content="N71UFoWbthgHIs7CCsYLXjd54CgHv5LOFkV2YNFH" />
-    <base href="https://timdothatlac.vn/">
+     <base href="https://timdothatlac.vn/">
     <link rel="stylesheet" href="client_assets/css/library/bootstrap/bootstrap-grid.min.css" type="text/css">
     <link rel="stylesheet" href="base_assets/fonts/awesome-5-pro/css/custom.css">
     <!-- CSS -->
@@ -185,13 +185,13 @@
                                                             <div class="line"></div>
                                                         </li>
                                                         <li>
-                                                            <form action="https://timdothatlac.vn/logout"
-                                                                method="POST">
+                                                            <form>
                                                                 <input type="hidden" name="_token"
                                                                     value="N71UFoWbthgHIs7CCsYLXjd54CgHv5LOFkV2YNFH">
                                                                 <button type="submit" aria-label="Xóa bài đăng">
                                                                     <i class="fal fa-sign-out-alt "></i>
-                                                                    Đăng xuất
+                                                                    <a href="{{ Route('dang-xuat') }}">Đăng xuất</a>
+
                                                                 </button>
                                                             </form>
                                                         </li>
@@ -369,12 +369,14 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <form action="https://timdothatlac.vn/logout" method="POST">
+                                                <form >
                                                     <input type="hidden" name="_token"
                                                         value="N71UFoWbthgHIs7CCsYLXjd54CgHv5LOFkV2YNFH"> <button
                                                         type="submit" aria-label="Xóa bài đăng">
                                                         <i class="fal fa-sign-out-alt "></i>
+                                                        <a href="{{ Route('dang-xuat') }}">
                                                         Đăng xuất
+                                                        </a>
                                                     </button>
                                                 </form>
                                             </li>

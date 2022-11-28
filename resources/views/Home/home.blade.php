@@ -20,14 +20,12 @@
                 @foreach ($dsBaiViet as $value)
                 <div class="posts list">
                     <div class="title-mobile">
-                        <a rel="dofollow"
-                            href="">
+                        <a rel="dofollow"href="{{ route('TrangChu.ChiTietBaiviet') }}">
                             <h3>{{ $value->tieu_de }}</h3>
                         </a>
                     </div>
 
-                    <a rel="dofollow" href=""
-                        class="image">
+                    <a rel="dofollow" action="{{ Route('BaiViet.dsBaiViet') }}"class="image">
                         <span class="posts-view">
                             <i class="fal fa-eye"></i>{{-- Lượt xem: chưa xử lý --}}
                         </span>
@@ -38,8 +36,7 @@
                     <div class="info">
 
                         <div class="title-desktop">
-                            <a rel="dofollow"
-                                href="">
+                            <a rel="dofollow"href="{{ route('TrangChu.ChiTietBaiviet') }}">
                                 <h3>{{ $value->tieu_de }}</h3>
                             </a>
                         </div>
@@ -52,7 +49,7 @@
                                 <i class="fal fa-map-marker-alt"></i>{{ $value->khu_vuc }}
                             </div>
                             <div class="time">
-                                <i class="fal fa-clock"></i>{{ $value->thoi_gian }}
+                                <i class="fal fa-clock"></i>{{ $value->created_at->diffForHumans() }}
                             </div>
                             <div class="cate">
 

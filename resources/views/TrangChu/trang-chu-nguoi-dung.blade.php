@@ -37,9 +37,8 @@
     <!-- This site is converting visitors into subscribers and customers with respond.io - https://respond.io -->
     <!-- https://respond.io/ -->
 
-                <meta property="og:title" content="Ứng Dụng Tìm Đồ Thất Lạc & Cho Đồ Miễn Phí | 0711 VN"/>
-        <meta property="og:description" content="Dịch vụ tìm kiếm, trả đồ thất lạc miễn phí,tìm thú cưng ,tìm người thân.Bảo vệ tài sản & Cho đồ đạc miễn phí.
-0711.vn"/>
+        <meta property="og:title" content="Ứng Dụng Tìm Đồ Thất Lạc & Cho Đồ Miễn Phí | 0711 VN"/>
+        <meta property="og:description" content="Dịch vụ tìm kiếm, trả đồ thất lạc miễn phí,tìm thú cưng ,tìm người thân.Bảo vệ tài sản & Cho đồ đạc miễn phí.0711.vn"/>
         <meta property="og:image" content="https://0711.vn/storage/default/share/share_image.jpg"/>
 
 
@@ -403,7 +402,7 @@
         </a>
     </li>
     <li>
-        <a href="/pets" class="">
+        <a href="{{ route('TrangChu.TinCanTim') }}" class="">
             <i class="fas fa-cat"></i>
             Tìm thú cưng
         </a>
@@ -485,30 +484,22 @@
     <div class="row">
         @foreach($dsBaiViet as $value)
                     <div class="col-md-4">
-                                        <div onclick="document.location = '/post/4995'" style="cursor: pointer; background-color: white; border-radius: 8px">
+                        <div onclick="document.location = '/post/4995'" style="cursor: pointer; background-color: white; border-radius: 8px">
                         <div class="single-property-area wow fadeInUp" data-wow-delay="200ms">
                             <div class="property-thumb" style="height: 165px !important;">
                                 <img src="assets/images/log.jpg" alt="" style="height: 100%">
-                                                                    <div class="priority-post">
+                                    <div class="priority-post">
                                         <span>Tin ưu tiên</span>
                                     </div>
                                                             </div>
                             <div class="d-flex flex-column" style="padding: 8px">
-                                <h6 style="
-                                    display: -webkit-box;
-                                    -webkit-line-clamp: 2;
-                                    -webkit-box-orient: vertical;
-                                    overflow: hidden;
-                                    text-overflow: Ellipsis;
-                                    max-height: 44px;
-                                    margin: 5px 0px 10px;
-                                ">{{ $value->tieu_de }}</h6>
+                                <h6 >{{ $value->tieu_de }}</h6>
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <i class="icofont-location-pin"></i><span style="font-size: 12px">{{ $value->khu_vuc }}</span>
                                     </div>
                                     <div>
-                                        <img src="https://www.0711.vn/storage/default/icon/posttype/lost.png" width="14" height="14"><span style="font-size: 12px">Tìm đồ</span>
+                                        <img src="{{ $value->hinh_anh }}" width="14" height="14"><span style="font-size: 12px">Tìm đồ</span>
                                     </div>
                                 </div>
                             </div>
@@ -518,45 +509,7 @@
                     @endforeach
             </div>
 
-    <div class="container">
-        <div class="row">
-            <ul class="pagination" role="navigation">
 
-                    <li class="page-item">
-                <a class="page-link" href="https://0711.vn?post_hurries=1" rel="prev" aria-label="&laquo; Previous">&lsaquo;</a>
-            </li>
-
-
-
-
-
-                                                                        <li class="page-item"><a class="page-link" href="">1</a></li>
-                                                                                <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
-                                                                                <li class="page-item"><a class="page-link" href="">3</a></li>
-                                                                                <li class="page-item"><a class="page-link" href="">4</a></li>
-                                                                                <li class="page-item"><a class="page-link" href="">5</a></li>
-                                                                                <li class="page-item"><a class="page-link" href="">6</a></li>
-                                                                                <li class="page-item"><a class="page-link" href="">7</a></li>
-                                                                                <li class="page-item"><a class="page-link" href="">8</a></li>
-
-                            <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
-
-
-
-
-
-                                                                        <li class="page-item"><a class="page-link" href="">238</a></li>
-                                                                                <li class="page-item"><a class="page-link" href="">239</a></li>
-
-
-                    <li class="page-item">
-                <a class="page-link" href="https://0711.vn?post_hurries=3" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
-            </li>
-            </ul>
-
-        </div>
-    </div>
-</div>
 
     <script async defer crossorigin="anonymous"
             src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=1003827663090985&autoLogAppEvents=1"></script>
@@ -571,20 +524,7 @@
     <script src="https://0711.vn/vendor/filepond/filepond-plugin-file-encode.js"></script>
     <script src="https://0711.vn/vendor/filepond/filepond-plugin-file-rename.min.js"></script>
     <script src="https://0711.vn/vendor/ckeditor/ckeditor.js"></script>
-    <script>
-        if ( $(window).width() <= 720) {
-            $('.hurry-post').removeClass('d-flex flex-row flex-nowrap');
-        }else{
-            $('.hurry-post').addClass('d-flex flex-row flex-nowrap')
-        }
-        $(window).resize(function () {
-            if ( $(window).width() <= 720) {
-                $('.hurry-post').removeClass('d-flex flex-row flex-nowrap');
-            }else{
-                $('.hurry-post').addClass('d-flex flex-row flex-nowrap')
-            }
-        });
-    </script>
+
 
     <!-- Main Footer Area -->
 

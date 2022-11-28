@@ -19,7 +19,7 @@ use App\Http\Controllers\TrangChuController;
 | contains the "web" middleware group. Now create something great!
 |*/
 
-Route::get('/', [LoginController::class, 'index'])->name('trang-chu')->middleware(('auth'));
+Route::get('/', [LoginController::class, 'index'])->name('trang-chu');
 
 Route::get('/dang-nhap', [LoginController::class, 'dangNhap'])->name('dang-nhap')->middleware(('guest'));
 Route::post('/dang-nhap', [LoginController::class, 'xuLyDangNhap'])->name('xl-dang-nhap')->middleware(('guest'));
@@ -100,6 +100,8 @@ Route::middleware('auth')->group(function () {
 
         Route::name('NguoiDung.')->group(function () {
             Route::get('/',[TrangChuController::class ,'index'])->name('trangnguoidung');
+
+
          });
 
     });
@@ -109,9 +111,19 @@ Route::middleware('auth')->group(function () {
         Route::name('TrangChu.')->group(function () {
            Route::get('/tincantim',[TrangChuController::class ,'tincantim'])->name('TinCanTim');
            Route::get('/tinnhatduoc',[TrangChuController::class ,'tinnhatduoc'])->name('TinNhatDuoc');
-
+           Route::get('/tinthucung',[TrangChuController::class ,'tinthucung'])->name('TinThuCung');
+           Route::get('/chitietbaiviet',[TrangChuController::class ,'chitietbaiviet'])->name('ChiTietBaiviet');
         });
 
     });
+    Route::prefix('tintuc')->group(function () {
+
+        Route::name('TrangChu.')->group(function () {
+           Route::get('/canhbaoluadao',[TrangChuController::class ,'canhbaoluadao'])->name('CanhBaoLuaDao');
+           Route::get('/cacmeovat',[TrangChuController::class ,'cacmeovat'])->name('CacMeoVat');
+        });
+
+    });
+
 
 });
