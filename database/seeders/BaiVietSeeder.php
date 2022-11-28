@@ -22,8 +22,8 @@ class BaiVietSeeder extends Seeder
                 "danh_muc_id" => 1,
                 "tieu_de" => "Nhặt được giấy tờ xea{$i}",
                 "noi_dung" => "Nhặt được giấy tờaaaaaaaaaa xe tại TP.HCM{$i}",
-                "thoi_gian" => "2022-10-10",
                 "khu_vuc" => "Quận 1, TP.HCM{$i}",
+                "created_at"=>"2022-11-18 13:26:03",
                 "trang_thai" => "1",
             ]);
         }
@@ -35,8 +35,8 @@ class BaiVietSeeder extends Seeder
                 "danh_muc_id" => 2,
                 "tieu_de" => "Mất được giấy tờ xea{$i}",
                 "noi_dung" => "Mất được giấy tờaaaaaaaaaa xe tại TP.HCM{$i}",
-                "thoi_gian" => "2022-10-10",
                 "khu_vuc" => "Quận 1, TP.HCM{$i}",
+                "created_at"=>"2022-11-18 13:26:03",
                 "trang_thai" => "1",
             ]);
         }

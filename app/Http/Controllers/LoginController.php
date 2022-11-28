@@ -17,12 +17,15 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('Trangchu.trang-chu-nguoi-dung');
+
+        //return view("TimKiem.tin-can-tim");
+        return view('Home.home');
+        //return view('Trangchu.trang-chu-nguoi-dung');
     }
 
     public function dangNhap()
     {
-        return view('Auth.dang-nhap');
+        return view('auth.signin');
     }
     public function xuLyDangNhap(Request $request)
     {

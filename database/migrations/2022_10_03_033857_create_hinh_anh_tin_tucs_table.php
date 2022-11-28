@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tin_tuc_id');
             $table->string('ten_hinh_anh')->nullable();
+            //Trạng thái = 0: Lỗi tải ảnh, 1: Bình thường
             $table->integer('trang_thai')->default(1);
             $table->timestamps();
             $table->softDeletes();

@@ -6,8 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TinTucController;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrangChuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |*/
 
 Route::get('/', [LoginController::class, 'index'])->name('trang-chu')->middleware(('auth'));
+
 Route::get('/dang-nhap', [LoginController::class, 'dangNhap'])->name('dang-nhap')->middleware(('guest'));
 Route::post('/dang-nhap', [LoginController::class, 'xuLyDangNhap'])->name('xl-dang-nhap')->middleware(('guest'));
 Route::get('/dang-xuat', [LoginController::class, 'dangXuat'])->name('dang-xuat')->middleware(('auth'));
@@ -94,4 +95,23 @@ Route::middleware('auth')->group(function () {
             });
         });
     });
+
+    Route::prefix('nguoidung')->group(function () {
+
+        Route::name('NguoiDung.')->group(function () {
+            Route::get('/',[TrangChuController::class ,'index'])->name('trangnguoidung');
+         });
+
+    });
+
+    Route::prefix('timkiem')->group(function () {
+
+        Route::name('TrangChu.')->group(function () {
+           Route::get('/tincantim',[TrangChuController::class ,'tincantim'])->name('TinCanTim');
+           Route::get('/tinnhatduoc',[TrangChuController::class ,'tinnhatduoc'])->name('TinNhatDuoc');
+
+        });
+
+    });
+
 });

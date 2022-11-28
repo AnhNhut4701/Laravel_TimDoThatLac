@@ -14,8 +14,18 @@ class TrangChuController extends Controller
 
       public function index()
       {
-        return view('Trangchu.trang-chu-nguoi-dung');
-          //return view('trang-chu');
+        return view('Home.home');
+
+      }
+      public function tincantim()
+      {
+        return view('TimKiem.tin-can-tim');
+        //return view('trang-chu');
       }
 
+      public function tinnhatduoc()
+      {
+        return view('TimKiem.tin-nhat-duoc  ');
+        //return view('trang-chu');
+      }
 }

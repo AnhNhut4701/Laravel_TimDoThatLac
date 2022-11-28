@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('hinh_anh_tin_tuc', function (Blueprint $table) {
+        Schema::table('hinh_anh_tin_tucs', function (Blueprint $table) {
             //
         });
     }

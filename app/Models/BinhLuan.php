@@ -9,13 +9,20 @@ class BinhLuan extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = "binh_luans";
+
+    protected $dates = ['created_at', 'updated_at'];
+
+    public $timestamps = false;
+
     protected $fillable = [
         "bai_viet_id",
         "nguoi_dung_id",
         "noi_dung",
         "trang_thai",
     ];
+
+    protected $primaryKey = "id";
+    protected $table = "binh_luans";
     public function NguoiDung()
     {
         return $this->belongsTo(NguoiDung::class, 'nguoi_dung_id', 'id');

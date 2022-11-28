@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('lien_hes', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('ho_ten');
+            $table->foreignId('nguoi_dung_id');
             $table->string('noi_dung');
             $table->timestamps();
             $table->softDeletes();

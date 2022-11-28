@@ -10,6 +10,7 @@ class LoaiTinTuc extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $primaryKey = "id";
     protected $table = "loai_tin_tucs";
     protected $fillable = ["ten_tin_tuc"];
     public function TinTuc(){

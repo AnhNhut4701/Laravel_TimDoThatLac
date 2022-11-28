@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('luot_xems', function (Blueprint $table) {
-            $table->foreign('bai_viet_id')->references('id')->on('bai_viets');
             $table->foreign('nguoi_dung_id')->references('id')->on('nguoi_dungs');
+            $table->foreign('bai_viet_id')->references('id')->on('bai_viets');
+            $table->foreign('tin_tuc_id')->references('id')->on('tin_tucs');
         });
     }
 

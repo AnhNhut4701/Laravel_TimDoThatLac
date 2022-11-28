@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use App\Models\BaiViet;
+use  App\Models\BaiViet;
+use App\Models\HinhAnhTinTuc;
+use App\Models\TinTuc;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,8 +29,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $dsBaiViet=BaiViet::all();
-        View::share('dsBaiViet',$dsBaiViet);
-
+        //Timstamps đổi hiển thị sang tiếng việt
+         Carbon::setLocale('vi');
+        $dsBaiViet = BaiViet::all();
+        $dsTinTuc = TinTuc::all();
+        $dsHinh = HinhAnhTinTuc::all();
+        View::share('dsBaiViet', $dsBaiViet);
+        View::share('dsTinTuc', $dsTinTuc, 'dsHinh', $dsHinh);
     }
 }

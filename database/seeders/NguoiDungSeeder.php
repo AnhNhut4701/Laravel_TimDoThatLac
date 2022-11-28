@@ -25,7 +25,6 @@ class NguoiDungSeeder extends Seeder
                 "mat_khau" => Hash::make("123456{$i}"),
                 "anh_dai_dien" => "aaaa",
                 "phan_quyen" => "1",
-                "trang_thai_ho_ten" => "1",
                 "trang_thai_email" => "1",
                 "trang_thai_so_dien_thoai" => "1",
                 "trang_thai_nguoi_dung" => "1",

@@ -10,9 +10,11 @@ class DanhMuc extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = "danh_mucs";
-    protected $guarded = [];
     protected $fillable = ["ten_danh_muc"];
+
+    protected $primaryKey = "id";
+    protected $table = "danh_mucs";
+
     public function baiviet(){
         return $this->hasMany(BaiViet::class,'danh_muc_id', 'id');
     }

@@ -9,6 +9,7 @@ use App\Models\DanhMuc;
 use App\Models\HinhAnhBaiViet;
 use App\Models\LoaiBaiViet;
 use App\Models\NguoiDung;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -37,12 +38,14 @@ class BaiVietController extends Controller
     }
     public function index()
     {
-        $dsBaiViet = DB::table('bai_viets')->join('nguoi_dungs', 'nguoi_dungs.id', '=', 'bai_viets.nguoi_dung_id')
+
+        $dsBaiViet = BaiViet::join('nguoi_dungs', 'nguoi_dungs.id', '=', 'bai_viets.nguoi_dung_id')
             ->join('loai_bai_viets', 'bai_viets.loai_bai_viet_id', '=', 'loai_bai_viets.id')
-        //->join('hinh_anh_bai_viets', 'bai_viets.id', '=', 'hinh_anh_bai_viets.bai_viet_id')
             ->join('danh_mucs', 'bai_viets.danh_muc_id', '=', 'danh_mucs.id')
-            ->select('bai_viets.id', 'nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', /* 'hinh_anh_bai_viets.ten_hinh_anh', */'danh_muc_id', 'khu_vuc', 'thoi_gian', 'bai_viets.trang_thai')
-            ->orderby('bai_viets.thoi_gian')->paginate(15);
+            ->select('bai_viets.id', 'nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', 'danh_muc_id', 'khu_vuc', 'bai_viets.trang_thai', 'bai_viets.created_at', 'bai_viets.updated_at')
+            ->orderby('bai_viets.created_at', 'desc')
+            ->orderby('bai_viets.updated_at', 'desc')
+            ->paginate(15);
         $dsHinh = HinhAnhBaiViet::all();
         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
@@ -51,7 +54,7 @@ class BaiVietController extends Controller
         $LoaiBaiViet = LoaiBaiViet::all();
         $DanhMuc = DanhMuc::all();
 
-        return view('BaiViet.danh-sach-bai-viet', ['dsBaiViet' => $dsBaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.baiviet.index', ['dsBaiViet' => $dsBaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
     }
 
     /**
@@ -67,7 +70,7 @@ class BaiVietController extends Controller
         $LoaiBaiViet = LoaiBaiViet::all();
         $dsHinh = HinhAnhBaiViet::all();
         $DanhMuc = DanhMuc::all();
-        return view('BaiViet.them-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.baiviet.create', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
     }
 
     /**
@@ -102,9 +105,10 @@ class BaiVietController extends Controller
             'danh_muc_id' => $request->input('danh_muc_id'),
             'tieu_de' => $request->input('tieu_de'),
             'noi_dung' => $request->input('noi_dung'),
-            'thoi_gian' => $request->input('thoi_gian'),
             'khu_vuc' => $request->input('khu_vuc'),
             'trang_thai' => 0,
+            'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+
         ]);
 
         $BaiViet->save();
@@ -153,7 +157,7 @@ class BaiVietController extends Controller
         $NguoiDung = NguoiDung::all();
         $LoaiBaiViet = LoaiBaiViet::all();
         $DanhMuc = DanhMuc::all();
-        return view('BaiViet.chi-tiet-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.baiviet.details', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -173,7 +177,7 @@ class BaiVietController extends Controller
         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
         }
-        return view('BaiViet.chi-tiet-bai-viet', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+        return view('admin.baiviet.details', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
 
     }
 
@@ -253,27 +257,27 @@ class BaiVietController extends Controller
         $baiviet = request()->loai_bai_viet_id;
         $danhmuc = request()->ten_danh_muc;
 
-
         if ($baiviet == 0 && $danhmuc == 0) {
             $BaiViet = DB::table('bai_viets')->join('nguoi_dungs', 'nguoi_dungs.id', '=', 'bai_viets.nguoi_dung_id')
                 ->join('loai_bai_viets', 'bai_viets.loai_bai_viet_id', '=', 'loai_bai_viets.id')
                 ->join('danh_mucs', 'bai_viets.danh_muc_id', '=', 'danh_mucs.id')
-                ->select('bai_viets.id', 'nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', 'danh_muc_id', 'khu_vuc', 'thoi_gian', 'bai_viets.trang_thai')
-                ->orderby('bai_viets.thoi_gian')
+                ->select('bai_viets.id', 'nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', 'danh_muc_id', 'khu_vuc', 'bai_viets.trang_thai', 'bai_viets.created_at', 'bai_viets.updated_at')
+                ->orderby('bai_viets.created_at', 'desc')
+                ->orderby('bai_viets.updated_at', 'desc')
                 ->paginate(15);
-        }
-        else {
+        } else {
             $BaiViet = DB::table('bai_viets')->join('nguoi_dungs', 'nguoi_dungs.id', '=', 'bai_viets.nguoi_dung_id')
                 ->join('loai_bai_viets', 'bai_viets.loai_bai_viet_id', '=', 'loai_bai_viets.id')
                 ->join('danh_mucs', 'bai_viets.danh_muc_id', '=', 'danh_mucs.id')
-                ->select('bai_viets.id', 'nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', 'danh_muc_id', 'khu_vuc', 'thoi_gian', 'bai_viets.trang_thai')
-                ->orderby('bai_viets.thoi_gian')
+                ->select('bai_viets.id', 'nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', 'danh_muc_id', 'khu_vuc', 'bai_viets.trang_thai', 'bai_viets.created_at', 'bai_viets.updated_at')
+                ->orderby('bai_viets.created_at', 'desc')
+                ->orderby('bai_viets.updated_at', 'desc')
                 ->where('loai_bai_viet_id', '=', $baiviet)
                 ->where('danh_muc_id', '=', $danhmuc)
                 ->paginate(15);
         }
         $LoaiBaiViet = LoaiBaiViet::all();
         $DanhMuc = DanhMuc::all();
-        return View('BaiViet.danh-sach-bai-viet', ['dsBaiViet' => $BaiViet, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc]);
+        return View('admin.baiviet.index', ['dsBaiViet' => $BaiViet, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc]);
     }
 }
