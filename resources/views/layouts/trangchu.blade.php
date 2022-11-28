@@ -40,7 +40,7 @@
             })
         });
     </script>
-    <base href="https://timdothatlac.vn/" >
+    {{-- <base href="https://timdothatlac.vn/" > --}}
 
     <link rel="stylesheet" href="client_assets/css/library/bootstrap/bootstrap-grid.min.css" type="text/css">
     <link rel="stylesheet" href="base_assets/fonts/awesome-5-pro/css/custom.css">
@@ -217,7 +217,7 @@
                                                     <i class="fal fa-upload"></i>Đăng tin</a>
                                             </li>
                                             <li>
-                                                <a rel="dofollow" href="">
+                                                <a rel="dofollow" href="{{ route('TrangChu.tinCanTim') }}">
                                                     <i class="fal fa-frown"></i>Tin cần tìm</a>
                                             </li>
                                             <li>

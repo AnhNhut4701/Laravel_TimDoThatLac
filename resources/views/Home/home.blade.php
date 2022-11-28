@@ -14,8 +14,6 @@
         </script>
     @endif
 @section('content')
-
-
             <div class="posts-list mt-3">
                 @foreach ($dsBaiViet as $value)
                 <div class="posts list">
@@ -52,7 +50,7 @@
                                 <i class="fal fa-map-marker-alt"></i>{{ $value->khu_vuc }}
                             </div>
                             <div class="time">
-                                <i class="fal fa-clock"></i>{{ $value->thoi_gian }}
+                                <i class="fal fa-clock"></i>{{ $value->created_at->diffForHumans() }}
                             </div>
                             <div class="cate">
 

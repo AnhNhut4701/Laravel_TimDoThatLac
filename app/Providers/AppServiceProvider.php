@@ -33,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         $dsBaiViet = BaiViet::all();
         $dsTinTuc = TinTuc::all();
         $dsHinh = HinhAnhTinTuc::all();
+
         View::share('dsBaiViet', $dsBaiViet);
         View::share('dsTinTuc', $dsTinTuc, 'dsHinh', $dsHinh);
     }

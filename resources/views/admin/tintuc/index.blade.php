@@ -53,28 +53,28 @@
                 <table class="table align-items-center ">
                     <thead>
                         <tr>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
-                                STT
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
+                                #
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Người đăng
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Tin tức
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Tiêu đề
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Khu vực
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Ngày tạo
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Ngày cập nhật
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Chức năng
                             </th>
                         </tr>
@@ -82,19 +82,19 @@
                     <tbody>
                         @foreach ($dsTinTuc as $key => $value)
                             <tr>
-                                <td class="align-middle text-center ">
+                                <td class="align-middle">
                                     <span class="badge badge-sm bg-gradient-success">{{ $key + 1 }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->ho_ten }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->ten_tin_tuc }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->tieu_de }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->khu_vuc }}</span>
                                 </td>
                                 <td class="align-middle">
@@ -104,14 +104,14 @@
                                         @endif
                                     </span>
                                 </td>
-                                <td class="align-middle ">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">
                                         @if ($value->updated_at != '')
                                             {{ $value->updated_at }} - {{ $value->updated_at->diffForHumans() }}
                                         @endif
                                     </span>
                                 </td>
-                                <td class="align-middle ">
+                                <td class="align-middle">
                                     <a href="{{ route('TinTuc.chiTietTinTuc', ['id' => $value->id]) }}">
                                         <button type="button" class="btn btn-info">Chi tiết</button>
                                     </a>
@@ -119,9 +119,15 @@
                                     <a href="{{ route('TinTuc.suaTinTuc', ['id' => $value->id]) }}">
                                         <button type="button" class="btn btn-warning">Sửa</button>
                                     </a>
-
-
-                                    <a onclick="return confirm('Bạn có chắc muốn xoá tin tức với ID = {{ $value->id }} ')"
+                                    <a onclick="if(confirm('Bạn có chắc muốn xoá tin tức với ID = {{ $value->id }} '))
+                                        {
+                                            Swal.fire({
+                                            position: 'top-right',
+                                            icon: 'warning',
+                                            title: 'Xóa thành công',
+                                            showConfirmButton: false,
+                                            timer: 3000
+                                            })}"
                                         href="{{ route('TinTuc.xoaTinTuc', ['id' => $value->id]) }}"
                                         class="btn btn-danger">Xóa
                                     </a>

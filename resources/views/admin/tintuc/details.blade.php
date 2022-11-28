@@ -18,6 +18,16 @@
         <div class="col-6">
             <div style="margin-top:20px">
                 <div class="container-fliud text-dark">
+                    <span><b>Người đăng: </b></span>{{ Auth::user()->ho_ten }}
+                </div>
+            </div>
+            <div style="margin-top:20px">
+                <div class="container-fliud text-dark">
+                    <span><b>Thời gian: </b></span>{{ $TinTuc->created_at }} - {{ $TinTuc->created_at->diffForHumans() }}
+                </div>
+            </div>
+            <div style="margin-top:20px">
+                <div class="container-fliud text-dark">
                     <span><b>Tiêu đề: </b></span>{{ $TinTuc->tieu_de }}
                 </div>
             </div>

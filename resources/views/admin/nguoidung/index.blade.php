@@ -55,33 +55,31 @@
                 <table class="table align-items-center ">
                     <thead>
                         <tr>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
-                                STT
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
+                                #
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Ảnh đại diện
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Tài khoản
                             </th>
-
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Họ tên
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Email
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Số điện thoại
                             </th>
-
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Phân quyền
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Trạng thái
                             </th>
-                            <th class=" text-center text-uppercase text-black text-xxs font-weight-bolder ">
+                            <th class="text-uppercase text-black text-xxs font-weight-bolder">
                                 Chức năng
                             </th>
                         </tr>
@@ -89,11 +87,11 @@
                     <tbody>
                         @foreach ($dsNguoiDung as $key => $value)
                             <tr>
-                                <td class="align-middle text-center ">
+                                <td class="align-middle">
                                     <span class="badge badge-sm bg-gradient-success">{{ $key + 1 }}</span>
                                 </td>
                                 <td>
-                                    <div class="d-flex px-2 py-1 text-center align-middle">
+                                    <div class="d-flex px-2 py-1 align-middle">
                                         <div>
                                             <img src="{{ asset($value->anh_dai_dien) }}" class="rounded-circle"
                                                 alt="user1" width="100px" height="100px">
@@ -101,17 +99,17 @@
                                     </div>
                                 </td>
 
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->tai_khoan }}</span>
                                 </td>
 
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->ho_ten }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->email }}</span>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle">
                                     <span class="text-xs font-weight-bold">{{ $value->so_dien_thoai }}</span>
                                 </td>
 
@@ -119,15 +117,15 @@
                                     <p class="text-xs font-weight-bold mb-0 text-center">{{ $value->phan_quyen }}</p>
                                 </td>
                                 @if ($value->trang_thai == 0)
-                                    <td class="align-middle text-center text-sm">
+                                    <td class="align-middle text-sm">
                                         <span class="badge badge-sm bg-gradient-success">Còn hoạt động</span>
                                     </td>
                                 @else
-                                    <td class="align-middle text-center text-sm">
+                                    <td class="align-middle text-sm">
                                         <span class="badge badge-sm bg-gradient-secondary">Bị khóa</span>
                                     </td>
                                 @endif
-                                <td class="align-middle text-end">
+                                <td class="align-middle">
                                     <a href="{{ route('NguoiDung.suaNguoiDung', ['id' => $value->id]) }}">
                                         <button type="button" class="btn btn-success">Sửa</button>
                                     </a>

@@ -115,7 +115,7 @@ class DanhMucController extends Controller
             'ten_danh_muc' => $request->input('ten_danh_muc'),
         ]);
         $DanhMuc->save();
-        return Redirect::route('DanhMuc.dsDanhMuc')->with('success', 'Sửa danh mục thành công');
+        return Redirect::route('DanhMuc.dsDanhMuc');
 
     }
 
@@ -129,7 +129,7 @@ class DanhMucController extends Controller
     {
         $DanhMuc = DanhMuc::find($id);
         $DanhMuc->delete();
-        return Redirect::route('DanhMuc.dsDanhMuc')->with('success', 'Xóa thành công');
+        return Redirect::route('DanhMuc.dsDanhMuc');
 
     }
 }

@@ -60,7 +60,7 @@ class TinTucController extends Controller
     {
         $NguoiDung = NguoiDung::all();
         $lsLoai = LoaiTinTuc::all();
-        return view('admin.tintuc.index', ['NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai]);
+        return view('admin.tintuc.create', ['NguoiDung' => $NguoiDung, 'lsLoai' => $lsLoai]);
 
     }
 
@@ -145,9 +145,9 @@ class TinTucController extends Controller
         //$LoaiTinTuc = LoaiTinTuc::all();
         $lsLoai = LoaiTinTuc::all();
         $dsHinh = HinhAnhTinTuc::where('tin_tuc_id', '=', $id)->get();
-        foreach ($dsHinh as $hinh) {
+/*         foreach ($dsHinh as $hinh) {
             $this->fixImage($hinh);
-        }
+        } */
         return view('admin.tintuc.edit', ['lsLoai' => $lsLoai, 'TinTuc' => $TinTuc, 'NguoiDung' => $NguoiDung, /* 'LoaiTinTuc' => $LoaiTinTuc, */'dsHinh' => $dsHinh]);
 
     }
