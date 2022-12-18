@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="icon" href="/storage/images/settings/63126ff7e52f2.png" sizes="32x32" />
+    <script src="{{ asset('assets\images\log.jpg') }}" sizes="32x32"></script>
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
-        rel="stylesheet">
-    <meta property="fb:app_id" content="513339126724584" />
 
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"rel="stylesheet">
+    <meta property="fb:app_id" content="513339126724584" /> --}}
     <script>
         const loadScriptsTimer = setTimeout(loadScripts, 5e3),
             userInteractionEvents = ["mouseover", "keydown", "touchmove", "touchstart"];
@@ -40,16 +38,15 @@
             })
         });
     </script>
-    {{-- <base href="https://timdothatlac.vn/" > --}}
+      <base href="https://timdothatlac.vn/" >
 
-    <link rel="stylesheet" href="client_assets/css/library/bootstrap/bootstrap-grid.min.css" type="text/css">
-    <link rel="stylesheet" href="base_assets/fonts/awesome-5-pro/css/custom.css">
+    <script  src="{{ asset('assets/css/library/bootstrap-grid.min.css') }}" type="text/css"></script>
+    <script  src="{{ asset('assets/fonts/awesome-5-pro/css/custom.css') }}"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="client_assets/css/styles-m.min.css" type="text/css">
-    <link rel="stylesheet" media="screen and (min-width: 992px)" href="client_assets/css/styles-l.min.css"
-        type="text/css">
+    <script  src="{{ asset('assets/css/styles-m.min.css') }}" type="text/css"></script>
+    <script  media="screen and (min-width: 992px)" src="{{ asset('assets/css/styles-l.min.cssassets/css/styles-l.min.css') }}"type="text/css"></script>
 
-    @yield('CSS')
+
 </head>
 
 <body class=" home-page">
@@ -63,7 +60,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="logo">
                                     <a href="">
-                                        <img width="182" height=30" src=""
+                                        <img width="182" height="30" src=""
                                             alt="logo">
                                     </a>
                                 </div>
@@ -144,19 +141,19 @@
 
                                                 <div class="option-dropdown brief-user">
                                                     <ul>
+
                                                         <li>
-                                                            <a href="">
-                                                                <i class="fal fa-sign-in-alt"></i>
+                                                            <a href="{{ Route('dang-xuat') }}">
+                                                                <i class="fal fa-pen "></i>
                                                                 Đăng nhập
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a href="">
-                                                                <i class="fal fa-pen "></i>
-                                                                Đăng ký
-                                                            </a>
-                                                        </li>
                                                     </ul>
+                                                    <ul>
+
+
+                                                    </ul>
+
                                                 </div>
 
                                             </div>
@@ -169,6 +166,7 @@
                 </div>
             </div>
         </header>
+<<<<<<< HEAD
 
         <div class="header-mobile">
             <div class="logo-mobile">
@@ -335,6 +333,8 @@
 
 
 
+=======
+>>>>>>> 49fa1ca59aed997ed50cf412e6b44e97360a6351
     <div class="container">
         <div class="wrapper">
             <div class="row">
@@ -347,37 +347,37 @@
                             <div class="categories-body">
                                 <ul>
                                     <li>
-                                        <a rel="dofollow" href="">
+                                        <a rel="dofollow" href={{ url('DangTin.dang-tin') }}>
                                             <i class="fal fa-upload"></i>Đăng tin</a>
                                     </li>
                                     <li>
-                                        <a rel="dofollow" href="">
+                                        <a rel="dofollow" href="{{ route('TrangChu.TinCanTim') }}">
                                             <i class="fal fa-frown"></i>Tin cần tìm</a>
                                     </li>
                                     <li>
-                                        <a rel="dofollow" href="">
+                                        <a rel="dofollow" href="{{ Route('TrangChu.TinNhatDuoc') }}">
                                             <i class="fal fa-cube"></i>Tin nhặt được</a>
                                     </li>
                                     <li>
-                                        <a rel="dofollow" href="">
+                                        <a rel="dofollow" href="{{Route('TrangChu.TinThuCung')}}">
                                             <i class="fal fa-paw"></i>Thú cưng</a>
-                                    </li>
-                                    <li>
-                                        <a rel="dofollow" href="">
-                                            <i class="fal fa-user"></i>Tìm người</a>
                                     </li>
                                     <li>
                                         <a rel="dofollow" href="">
                                             <i class="fal fa-search"></i>Tìm kiếm nâng cao</a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a rel="dofollow" href="">
                                             <i class="fal fa-phone fa-rotate-90 desktop-inline-block"></i>Danh sách SĐT
                                             lừa đảo</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="line"></li>
                                     <li>
-                                        <a rel="dofollow" href=""><i class="fal fa-newspaper"></i>Tin Tức</a>
+                                        <a rel="dofollow" href="{{ route('TrangChu.CacMeoVat') }}"><i class="fal fa-newspaper"></i>Các mẹo vặt</a>
+                                    </li>
+                                    <li>
+                                        <a rel="dofollow" href="{{ route('TrangChu.CanhBaoLuaDao') }}"><i class="fal fa-shield-alt"></i>Cảnh báo
+                                            lừa đảo</a>
                                     </li>
                                     <li>
                                         <a rel="dofollow" href=""><i class='fal fa-info-square'></i>Giới
@@ -395,10 +395,7 @@
                                         <a rel="dofollow" href=""><i class='fal fa-book'></i>Điều khoản sử
                                             dụng</a>
                                     </li>
-                                    <li>
-                                        <a rel="dofollow" href=""><i class="fal fa-shield-alt"></i>Cảnh báo
-                                            lừa đảo</a>
-                                    </li>
+
                                     <li>
                                         <a rel="dofollow" href=""><i class="fal fa-bug"></i>Báo lỗi</a>
                                     </li>
@@ -409,12 +406,7 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="contents">
-                        <div class="alert alert-danger text-center">Ủng hộ dự &aacute;n&nbsp;&nbsp;<a
-                                class="alert-link" href="">tại đ&acirc;y</a>.
-                        </div>
 
-                        <div class="alert alert-success mobile text-center">Đăng tin nhanh&nbsp;<a class="alert-link"
-                                href="">tại đ&acirc;y</a> !</div>
 
                 @yield('content')
             </div>
@@ -427,9 +419,9 @@
     <div id="user-logged" data-logged="0"></div>
     <script src="base_assets/plugins/jquery/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script src="base_assets/js/base.js" type="text/javascript"></script>
-    <script type="text/javascript" src="client_assets/js/index/js.js"></script>
-    <script type="text/javascript" src="client_assets/js/hamburger-menu/js.js"></script>
-    <script type="text/javascript" src="client_assets/js/header/js.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/index/js.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/hamburger-menu/js.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/header/js.js') }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YVMK55WY"></script>
     <script>

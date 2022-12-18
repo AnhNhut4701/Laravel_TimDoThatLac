@@ -23,18 +23,15 @@
                         <input type="text" class="form-control" id="tai_khoan" placeholder="Tìm theo tên tài khoản"
                             name="tai_khoan">
                     </div>
-                    <div class="col-1 my-4">
-                        <button type="submit" class="btn btn-success">Tìm</button>
-                    </div>
                     <div class="col-2 my-4">
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                    </div>
+                   {{--  <div class="col-2 my-4">
                         <a href="{{ route('NguoiDung.dsNguoiDung') }}">
                             <button type="button" class="btn btn-success">Load danh sách</button>
                         </a>
-                    </div>
-
+                    </div> --}}
                 </div>
-
-
     </form>
     {{--     <a href="{{ route('Nguo.dsBaiViet') }}">
         <button type="button" class="btn btn-info">Danh sách tin tức đã xoá</button>
@@ -126,15 +123,15 @@
                                     </td>
                                 @endif
                                 <td class="align-middle">
-                                    <a href="{{ route('NguoiDung.suaNguoiDung', ['id' => $value->id]) }}">
+                                    {{-- <a href="{{ route('NguoiDung.suaNguoiDung', ['id' => $value->id]) }}">
                                         <button type="button" class="btn btn-success">Sửa</button>
-                                    </a>
+                                    </a> --}}
                                     <a onclick="return confirm('Bạn có chắc chắn muốn xoá tài khoản {{ $value->tai_khoan }} ?')"
                                         href="{{ route('NguoiDung.xoaNguoiDung', ['id' => $value->id]) }}"
                                         class="btn btn-danger">Xóa
                                     </a>
                                     <a href="{{ route('NguoiDung.dsNguoiDung') }}">
-                                        <button type="button" class="btn btn-success">Khóa</button>
+                                        <button type="button" class="btn btn-warning">Khóa</button>
                                     </a>
 
                                 </td>

@@ -95,7 +95,7 @@
                             <td class="align-middle">
                                 <a
                                     href="{{ route('DanhMuc.suaDanhMuc', ['id' => $value->id]) }}">
-                                    <button type="button" class="btn btn-success">Sửa</button>
+                                    <button type="button" class="btn btn-warning">Sửa</button>
                                 </a>
                                 <a onclick="if(confirm('Bạn có chắc chắn muốn xoá {{ $value->ten_danh_muc }}?'))
                                     {
