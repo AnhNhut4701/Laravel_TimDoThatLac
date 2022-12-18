@@ -58,5 +58,11 @@ class TrangChuController extends Controller
         $BaiViet = BaiViet::where('id', $id->id)->first();
         return view("trang-chu.product",compact('BaiViet') );
       }
+      public function thongtinnguoidung(Request $rqt)
+      {
+        $NguoiDung = NguoiDung::where('id', $rqt->id)->first();
+        return view("trang-chu.thong-tin-nguoi-dung", compact('NguoiDung') );
+      }
+
 
 }

@@ -53,18 +53,19 @@
                             <ul id="user_dropdown" class="mailbox dropdown-content dropdown-user">
                                 <li>
                                     <div class="dw-user-box">
-                                        <div class="u-img"><img src="{{ asset('assets/images/users/2.jpg') }}" alt="user"></div>
+                                        <div class="u-img"><img src=" {{ asset(Auth::user()->anh_dai_dien )  }}" alt="user"></div>
                                         <div class="u-text">
-                                            <h4>{{ $user->name}}</h4>
+                                            <h4>{{ Auth::user()->ho_ten }}</h4>
 
-                                            <span class="label label-warning">Tài khoản: <sup>đ</sup></span>
+                                            {{-- <span class="label label-warning">Tài khoản: <sup>đ</sup></span> --}}
                                         </div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="{{ route('TrangChu.DangBai') }}"><i class="material-icons">view_list</i> Đăng bài</a></li>
+                                <li><a href="{{ route('TrangChu.ThongTinNguoiDung',(Auth::user()->id )) }}"><i class="material-icons">account_circle</i> Quản lý tài khoản</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="material-icons">account_circle</i> Quản lý tài khoản</a></li>
+                                <li><a href="{{ route('TrangChu.DangBai') }}"><i class="material-icons">view_list</i> Đăng bài</a></li>
+
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('dang-xuat') }}"><i class="material-icons">power_settings_new</i> Đăng xuất</a></li>
                             </ul>

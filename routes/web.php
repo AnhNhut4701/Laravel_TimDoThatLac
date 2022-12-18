@@ -116,17 +116,17 @@ Route::middleware('auth')->group(function () {
         });
 
     });
-    Route::prefix('tintuc')->group(function () {
+    Route::prefix('NguoiDung')->group(function () {
 
         Route::name('TrangChu.')->group(function () {
            Route::get('/canhbaoluadao',[TrangChuController::class ,'canhbaoluadao'])->name('CanhBaoLuaDao');
            Route::get('/cacmeovat',[TrangChuController::class ,'cacmeovat'])->name('CacMeoVat');
            Route::get('/dangbai',[TrangChuController::class ,'dangbai'])->name('DangBai');
            Route::get('baiviet/{id}',[TrangChuController::class ,'chitiet'])->name('ChiTiet');
+           Route::get('thongtinnguoidung/{id}',[TrangChuController::class,'thongtinnguoidung'])->name('ThongTinNguoiDung');
         });
 
     });
-
 
 });
 
