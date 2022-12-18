@@ -18,16 +18,9 @@ class LoginController extends Controller
     public function index()
     {
 
-         //Vào trang chi tiết bài đăng
-         //return view('ChiTietBaiDang.chitiet');
-         //Vào trang tin tức
-         //return view('TinTuc.meotimdo_canhbao');
-         //return view('TinTuc.tintuc');
-        //Vào trang chủ
-       //return view('Home.home');
-       //return view('layouts.test');
-        //Vào trang admin
-        return view('admin.dashboard.index');
+        //return view("TimKiem.tin-can-tim");
+        return view('trang-chu.index');
+        //return view('Trangchu.trang-chu-nguoi-dung');
     }
 
     public function dangNhap()

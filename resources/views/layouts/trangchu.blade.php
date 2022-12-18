@@ -38,7 +38,11 @@
             })
         });
     </script>
+<<<<<<< HEAD
       <base href="https://timdothatlac.vn/" >
+=======
+      <base href="https://timdothatlac.vn/">
+>>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6
 
     <script  src="{{ asset('assets/css/library/bootstrap-grid.min.css') }}" type="text/css"></script>
     <script  src="{{ asset('assets/fonts/awesome-5-pro/css/custom.css') }}"></script>
@@ -166,6 +170,7 @@
                 </div>
             </div>
         </header>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         <div class="header-mobile">
@@ -335,6 +340,8 @@
 
 =======
 >>>>>>> 49fa1ca59aed997ed50cf412e6b44e97360a6351
+=======
+>>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6
     <div class="container">
         <div class="wrapper">
             <div class="row">

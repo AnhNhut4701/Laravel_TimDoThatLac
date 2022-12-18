@@ -58,7 +58,7 @@
         content="Đây là danh sách số điện thoại lừa đảo, mọi người cảnh giác và đăng thêm số điện thoại lên để người khác biết." />
     <meta property="og:image" content="https://timdothatlac.vn/base_assets/images/anhbia_fb.png" />
     <meta name="csrf-token" content="N71UFoWbthgHIs7CCsYLXjd54CgHv5LOFkV2YNFH" />
-    <base href="https://timdothatlac.vn/">
+    {{-- <base href="https://timdothatlac.vn/"> --}}
     <link rel="stylesheet" href="client_assets/css/library/bootstrap/bootstrap-grid.min.css" type="text/css">
     <link rel="stylesheet" href="base_assets/fonts/awesome-5-pro/css/custom.css">
 
@@ -70,7 +70,6 @@
     @yield('CSS')
 
 </head>
-
 <body class=" create-post-page">
 
     <div class="container-fuild">
@@ -81,8 +80,8 @@
                         <div class="row">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="logo">
-                                    <a href="https://timdothatlac.vn">
-                                        <img width="182" height=30" src="/storage/images/settings/63126f50dbf45.png"
+                                    <a href="">
+                                        <img width="182" height="30" src="/storage/images/settings/63126f50dbf45.png"
                                             alt="logo">
                                     </a>
                                 </div>
@@ -156,61 +155,6 @@
                                                 </div>
                                             </div>
                                         </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                         <li>
                                             <div class="menu-item">
                                                 <button aria-label="Tài khoản" class="link" rel="nofollow"
@@ -301,12 +245,7 @@
                         <input type="checkbox" id="toggleHamburgerMenu" />
 
 
-                        <!--
-        Some spans to act as a hamburger.
-
-        They are acting like a real hamburger,
-        not that McDonalds stuff.
-        -->
+                        <!--Some spans to act as a hamburger.They are acting like a real hamburger, not that McDonalds stuff.-->
                         <span></span>
                         <span></span>
                         <span></span>
@@ -568,7 +507,7 @@
 
                         <div class="both-sides-title">
                             <h2>Bài viết</h2>
-                            <a href="">Xem tất cả</a>
+                            <a href="{{ Route('NguoiDung.trangnguoidung') }}">Xem tất cả</a>
                         </div>
 
                         <div class="block news-list-column">
