@@ -70,7 +70,6 @@
     @yield('CSS')
 
 </head>
-
 <body class=" create-post-page">
 
     <div class="container-fuild">
@@ -81,7 +80,7 @@
                         <div class="row">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="logo">
-                                    <a href="https://timdothatlac.vn">
+                                    <a href="">
                                         <img width="182" height="30" src="/storage/images/settings/63126f50dbf45.png"
                                             alt="logo">
                                     </a>
@@ -156,61 +155,6 @@
                                                 </div>
                                             </div>
                                         </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                         <li>
                                             <div class="menu-item">
                                                 <button aria-label="Tài khoản" class="link" rel="nofollow"
@@ -301,12 +245,7 @@
                         <input type="checkbox" id="toggleHamburgerMenu" />
 
 
-                        <!--
-        Some spans to act as a hamburger.
-
-        They are acting like a real hamburger,
-        not that McDonalds stuff.
-        -->
+                        <!--Some spans to act as a hamburger.They are acting like a real hamburger, not that McDonalds stuff.-->
                         <span></span>
                         <span></span>
                         <span></span>

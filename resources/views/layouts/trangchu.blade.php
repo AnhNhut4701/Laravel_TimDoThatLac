@@ -38,7 +38,7 @@
             })
         });
     </script>
-      <base href="https://timdothatlac.vn/" >
+      <base href="https://timdothatlac.vn/">
 
     <script  src="{{ asset('assets/css/library/bootstrap-grid.min.css') }}" type="text/css"></script>
     <script  src="{{ asset('assets/fonts/awesome-5-pro/css/custom.css') }}"></script>

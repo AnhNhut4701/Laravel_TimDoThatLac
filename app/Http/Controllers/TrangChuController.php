@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\BaiViet;
+use App\Models\DanhMuc;
+use App\Models\HinhAnhBaiViet;
+use App\Models\LoaiBaiViet;
+use App\Models\NguoiDung;
 class TrangChuController extends Controller
 {
     Public function __construct(){
@@ -14,15 +18,15 @@ class TrangChuController extends Controller
 
       public function index()
       {
-        return view('Home.home');
+        return view('trang-chu.index');
       }
       public function tincantim()
       {
-        return view('TimKiem.tin-can-tim');
+        return view('trang-chu.matdo_index');
       }
       public function tinnhatduoc()
       {
-        return view('TimKiem.tin-nhat-duoc');
+        return view('trang-chu.nhatdo_index');
       }
       public function tinthucung()
       {
@@ -38,6 +42,21 @@ class TrangChuController extends Controller
       }
       public function chitietbaiviet()
       {
-        return view('ChiTiet.chi-tiet-bai-viet');
+        return view('trang-chu.product');
       }
+      public function dangbai()
+      {
+        $BaiViet = BaiViet::all();
+        $NguoiDung = NguoiDung::all();
+        $LoaiBaiViet = LoaiBaiViet::all();
+        $dsHinh = HinhAnhBaiViet::all();
+        $DanhMuc = DanhMuc::all();
+        return view('trang-chu.dang-bai', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+      }
+      public function chitiet(Request $id)
+      {
+        $BaiViet = BaiViet::where('id', $id->id)->first();
+        return view("trang-chu.product",compact('BaiViet') );
+      }
+
 }

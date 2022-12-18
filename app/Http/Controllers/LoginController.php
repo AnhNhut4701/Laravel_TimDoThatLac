@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
 
         //return view("TimKiem.tin-can-tim");
-        return view('Home.home');
+        return view('trang-chu.index');
         //return view('Trangchu.trang-chu-nguoi-dung');
     }
 

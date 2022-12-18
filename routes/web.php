@@ -121,9 +121,12 @@ Route::middleware('auth')->group(function () {
         Route::name('TrangChu.')->group(function () {
            Route::get('/canhbaoluadao',[TrangChuController::class ,'canhbaoluadao'])->name('CanhBaoLuaDao');
            Route::get('/cacmeovat',[TrangChuController::class ,'cacmeovat'])->name('CacMeoVat');
+           Route::get('/dangbai',[TrangChuController::class ,'dangbai'])->name('DangBai');
+           Route::get('baiviet/{id}',[TrangChuController::class ,'chitiet'])->name('ChiTiet');
         });
 
     });
 
 
 });
+
