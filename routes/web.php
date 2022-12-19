@@ -107,26 +107,12 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('nguoidung')->group(function () {
-<<<<<<< HEAD
-        Route::name('TrangChu.')->group(function () {
-            Route::get('/', [TrangChuController::class, 'index'])->name('tinCanTim');
-        });
-    });
-});
-/* auth:admin
-auth: tên guards */
-=======
-
         Route::name('NguoiDung.')->group(function () {
             Route::get('/',[TrangChuController::class ,'index'])->name('trangnguoidung');
-
-
          });
-
     });
 
     Route::prefix('timkiem')->group(function () {
-
         Route::name('TrangChu.')->group(function () {
            Route::get('/tincantim',[TrangChuController::class ,'tincantim'])->name('TinCanTim');
            Route::get('/tinnhatduoc',[TrangChuController::class ,'tinnhatduoc'])->name('TinNhatDuoc');
@@ -136,17 +122,12 @@ auth: tên guards */
 
     });
     Route::prefix('tintuc')->group(function () {
-
         Route::name('TrangChu.')->group(function () {
            Route::get('/canhbaoluadao',[TrangChuController::class ,'canhbaoluadao'])->name('CanhBaoLuaDao');
            Route::get('/cacmeovat',[TrangChuController::class ,'cacmeovat'])->name('CacMeoVat');
            Route::get('/dangbai',[TrangChuController::class ,'dangbai'])->name('DangBai');
            Route::get('baiviet/{id}',[TrangChuController::class ,'chitiet'])->name('ChiTiet');
         });
-
     });
-
-
 });
 
->>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6

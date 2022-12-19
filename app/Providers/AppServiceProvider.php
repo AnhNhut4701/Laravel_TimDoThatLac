@@ -33,16 +33,21 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('vi');
 
         //danh sách đồ được nhặt
-        $dsTinNhatDo = BaiViet::all()->where('loai_bai_viet_id','=','1')->where('trang_thai','=','1');
+        $dsTinNhatDo = BaiViet::all()
+        ->where('loai_bai_viet_id','=','1')
+        ->where('trang_thai','=','1')
+        ->sortDesc();
         View::share('dsTinNhatDo', $dsTinNhatDo);
 
         //danh sách đồ mất
-        $dsTinMatDo= BaiViet::all()->where('loai_bai_viet_id','=','2')->where('trang_thai','=','1');
+        $dsTinMatDo= BaiViet::all()
+        ->where('loai_bai_viet_id','=','2')
+        ->where('trang_thai','=','1')
+        ->sortDesc();
         View::share('dsTinMatDo', $dsTinMatDo);
 
         // danh sách bài viết
-
-        $dsBaiViet=BaiViet::all();
+        $dsBaiViet=BaiViet::all()->sortDesc();
         View::share('dsBaiViet', $dsBaiViet);
 
         // chi tiết bài viết
@@ -55,12 +60,16 @@ class AppServiceProvider extends ServiceProvider
 
         $ctBaiViet = BaiViet::all();
         View::share('ctBaiViet', $ctBaiViet);
-        //danh sách meo vat
-        $dsMeoVat=TinTuc::all()->where('loai_tin_tuc_id','=','1');
+        //danh sách mẹo vặt
+        $dsMeoVat=TinTuc::all()
+        ->where('loai_tin_tuc_id','=','1')
+        ->sortDesc();
         View::share('dsMeoVat', $dsMeoVat);
 
         // danh sách lừa đảo
-        $dsLuaDao=TinTuc::all()->where('loai_tin_tuc_id','=','2');
+        $dsLuaDao=TinTuc::all()
+        ->where('loai_tin_tuc_id','=','2')
+        ->sortDesc();
         View::share('dsLuaDao', $dsLuaDao);
 
         //$dsBaiViet = BaiViet::all()->where('loai_bai_viet_id','=','1')->where('trang_thai','=','1');
