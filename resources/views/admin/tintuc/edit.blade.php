@@ -44,23 +44,40 @@
                 <span style="color:red"> {{ $message }}</span>
             @enderror
         </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Khu vực<label class="text-danger">*</label></label>
+            <textarea class="form-control" rows="2" placeholder="Khu vực" name="khu_vuc">{{ old('khu_vuc') ?? $TinTuc->khu_vuc }}</textarea>
+            @error('tieu_de')
+                <span style="color:red"> {{ $message }}</span>
+            @enderror
+        </div>
         {{-- Lỗi --}}
         <div class="mb-3">
             <label for="formFileMultiple" class="form-label">Hình ảnh</label>
-            <input class="form-control" type="file" id="formFileMultiple" name="ten_hinh_anh" multiple="multiple">
-            {{--       <input class="form-control" type="file" id="ten_hinh_anh" name="image[]"
-                        value="{{ old('ten_hinh_anh') }}" multiple="multiple"> --}}
+                  <input class="form-control" type="file" id="ten_hinh_anh" name="image[]"
+                        value="{{ old('ten_hinh_anh') }}" multiple="multiple">
+                        @foreach ($dsHinh as $value)
+                                    <img class="img-reponsive" src="{{ asset($value->ten_hinh_anh) }}" height="100"
+                                        width="100">
+                                @endforeach
             @error('ten_hinh_anh')
                 <span style="color:red"> {{ $message }}</span>
             @enderror
-            <img src="{{ $TinTuc->ten_hinh_anh }}" alt=""
-                style="width:100px; max-height: 100px; object-fit:contain">
             @error('ten_hinh_anh')
                 <span style="color:red"> {{ $message }}</span>
             @enderror
         </div>
         <div class="align-middle text-end">
-            <a onclick="return confirm('Bạn có muốn lưu chỉnh sửa lần này?')">
+            <a onclick="if(confirm('Bạn có muốn lưu chỉnh sửa lần này?'))
+            {
+                Swal.fire({
+                position: 'top-right',
+                icon: 'success',
+                title: 'Lưu thành công',
+                showConfirmButton: false,
+                timer: 3000
+                })
+            }">
                 <button type="submit" class="btn btn-outline-success">Lưu</button>
             </a>
             {{--  <button type="submit" class="btn btn-outline-success">Lưu</button> --}}

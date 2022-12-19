@@ -18,6 +18,11 @@ class TrangChuController extends Controller
 
       public function index()
       {
+<<<<<<< HEAD
+
+        return view('TimKiem.tin-can-tim');
+          //return view('trang-chu');
+=======
         return view('trang-chu.index');
       }
       public function tincantim()
@@ -57,6 +62,7 @@ class TrangChuController extends Controller
       {
         $BaiViet = BaiViet::where('id', $id->id)->first();
         return view("trang-chu.product",compact('BaiViet') );
+>>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6
       }
       public function thongtinnguoidung(Request $rqt)
       {

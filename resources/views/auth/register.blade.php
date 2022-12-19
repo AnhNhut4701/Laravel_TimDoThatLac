@@ -1860,7 +1860,7 @@
                   </label>
                 </div> -->
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">
+                                        <button type="submit"  class="btn bg-gradient-dark w-100 my-4 mb-2">
                                             Đăng ký</button>
                                     </div>
                                     <p class="text-sm text-center mt-3 mb-0">Bạn đã có tài khoản? <a

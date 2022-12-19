@@ -38,7 +38,11 @@
             })
         });
     </script>
+<<<<<<< HEAD
+      <base href="https://timdothatlac.vn/" >
+=======
       <base href="https://timdothatlac.vn/">
+>>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6
 
     <script  src="{{ asset('assets/css/library/bootstrap-grid.min.css') }}" type="text/css"></script>
     <script  src="{{ asset('assets/fonts/awesome-5-pro/css/custom.css') }}"></script>
@@ -166,6 +170,178 @@
                 </div>
             </div>
         </header>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        <div class="header-mobile">
+            <div class="logo-mobile">
+                <a href="">
+                    <img src="/storage/images/settings/6366de59d4afd.png" width="35px" height="35px"
+                        alt="logo">
+                </a>
+            </div>
+            <div class="search-mobile">
+                <div class="header-search">
+                    <form action="" method="GET"
+                        class="form-header-search">
+                        <input type="text" id="search_mobile" aria-label="Nhập thông tin tìm kiếm"
+                            class="input-search" placeholder="Nhập tên trong giấy tờ..." autocomplete="off"
+                            name="keywords">
+                        <button type="submit" aria-label="Tìm kiếm">
+                            <i class="fal fa-search"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="hamburger-menu">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <div class="overlay menu-overlay"></div>
+                        <input type="checkbox" id="toggleHamburgerMenu" />
+                        <div id="menu">
+                            <div class="tab-wrapper">
+                                <ul class="tab">
+                                    <li>
+                                        <a href="#tab-menu">Menu</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-notification" id="btn-tab-notification">Thông báo</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-account">Tài khoản</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-item" id="tab-menu">
+                                        <ul>
+                                            <li>
+                                                <a rel="dofollow" href={{ url('DangTin.dang-tin') }}>
+                                                    <i class="fal fa-upload"></i>Đăng tin</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href="{{ route('TrangChu.tinCanTim') }}">
+                                                    <i class="fal fa-frown"></i>Tin cần tìm</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href="">
+                                                    <i class="fal fa-cube"></i>Tin nhặt được</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href="">
+                                                    <i class="fal fa-paw"></i>Thú cưng</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href="">
+                                                    <i class="fal fa-user"></i>Tìm người</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href="">
+                                                    <i class="fal fa-search"></i>Tìm kiếm nâng cao</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href="">
+                                                    <i class="fal fa-phone fa-rotate-90 desktop-inline-block"></i>Danh
+                                                    sách SĐT lừa đảo</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i class="fal fa-newspaper"></i>Tin
+                                                    Tức</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i
+                                                        class='fal fa-info-square'></i>Giới thiệu</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i
+                                                        class='fal fa-dollar-sign'></i>Ủng hộ dự án</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i
+                                                        class='fal fa-shield-alt'></i>Chính sách bảo mật</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i class='fal fa-book'></i>Điều
+                                                    khoản sử dụng</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i
+                                                        class="fal fa-shield-alt"></i>Cảnh báo lừa đảo</a>
+                                            </li>
+                                            <li>
+                                                <a rel="dofollow" href=""><i class="fal fa-bug"></i>Báo
+                                                    lỗi</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="tab-item" id="tab-notification">
+                                        <div class="notify-items">
+
+                                        </div>
+                                        <div class="loading">
+                                            <div class="lds-dual-ring"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-item" id="tab-account">
+                                        <ul>
+                                            <li>
+                                                <a href="">
+                                                    <i class="fal fa-sign-in-alt"></i>
+                                                    Đăng nhập
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <i class="fal fa-pen "></i>
+                                                    Đăng ký
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="copy-right">
+                                <p>Copyright 2022 timdothatlac.vn</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </nav>
+
+            </div>
+
+            <div class="search-suggestions" id="search-suggestions-mobile">
+                <div class="search-suggestions__head">
+                    <p class="search-tutorial text-center mt-3">Nhập từ khóa để tìm kiếm</p>
+                </div>
+                <div class="search-suggestions__body">
+                    <div class="loading">
+                        <div class="lds-dual-ring"></div>
+                    </div>
+                    <div class="suggestions-items">
+                    </div>
+                </div>
+                <div class="search-suggestions__foot">
+                    <a href="">
+                        <i class="fal fa-search"></i> Tìm kiếm nâng cao
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="data-url-ajax-search" data-url-ajax-search=""></div>
+
+
+
+=======
+>>>>>>> 49fa1ca59aed997ed50cf412e6b44e97360a6351
+=======
+>>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6
     <div class="container">
         <div class="wrapper">
             <div class="row">

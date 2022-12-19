@@ -3,6 +3,7 @@
 @section('title', 'Chi tiết')
 
 @section('TT')
+
 @endsection
 
 @section('sidebar')
@@ -69,10 +70,11 @@
     </div>
     <div style="margin-top:20px">
         <div class="align-middle text-end">
-            <a href="{{ route('BaiViet.suaBaiViet', ['id' => $BaiViet->id]) }}" class="btn btn-outline-success">Sửa</a>
-            <a onclick="return confirm('Bạn có chắc muốn xoá bài viết với ID = {{ $BaiViet->id }} ')"
-                href="{{ route('BaiViet.xoaBaiViet', ['id' => $BaiViet->id]) }}" class="btn btn-outline-danger">Xoá</a>
-            <a href="{{ route('BaiViet.dsBaiViet', ['id' => $BaiViet->id]) }}" class="btn btn-outline-secondary">Quay lại</a>
+            <a onclick="if(confirm('Bạn muốn duyệt bài viết này?'))"
+            href="{{ route('DuyetBaiViet.duyetBaiViet', ['id' => $BaiViet->id]) }}" class="btn btn-outline-success">Duyệt</a>
+            <a onclick="if(confirm('Bạn muốn từ chối duyệt bài viết này?'))"
+                href="{{ route('DuyetBaiViet.tuChoiDuyetBaiViet', ['id' => $BaiViet->id]) }}" class="btn btn-outline-danger">Từ chối</a>
+            <a href="{{ route('DuyetBaiViet.dsBaiVietChoDuyet', ['id' => $BaiViet->id]) }}" class="btn btn-outline-secondary">Quay lại</a>
 
         </div>
     </div>

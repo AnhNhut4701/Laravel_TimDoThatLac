@@ -3,7 +3,7 @@
 @section('title', 'bài viết')
 
 @section('TT')
-    Danh sách bài viết
+    Danh sách bài viết đã xóa
 @endsection
 
 @section('sidebar')

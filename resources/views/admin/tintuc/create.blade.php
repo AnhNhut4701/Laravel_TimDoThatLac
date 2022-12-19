@@ -25,7 +25,14 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Khu vực<label
+                        class="text-danger">*</label></label>
+                        <textarea class="form-control" rows="2" placeholder="Khu vực" name="khu_vuc">{{ old('khu_vuc') }}</textarea>
+                    @error('khu_vuc')
+                        <span style="color:red"> {{ $message }}</span>
+                    @enderror
+                </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Tiêu đề<label
                         class="text-danger">*</label></label>

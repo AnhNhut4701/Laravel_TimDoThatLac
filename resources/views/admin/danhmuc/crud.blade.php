@@ -17,7 +17,8 @@
             @csrf
             <div class="row col-4">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Tên danh mục<label class="text-danger">*</label></label>
+                    <label for="exampleFormControlInput1" class="form-label">Tên danh mục<label
+                            class="text-danger">*</label></label>
                     <input type="text" class="form-control" placeholder="Tên danh mục" name="ten_danh_muc"
                         value="{{ old('ten_danh_muc') }}">
                     @error('ten_danh_muc')
@@ -35,16 +36,30 @@
             @method('PATCH')
             <div class="row col-4">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Tên danh mục<label class="text-danger">*</label></label>
+                    <label for="exampleFormControlInput1" class="form-label">Tên danh mục<label
+                            class="text-danger">*</label></label>
                     <input type="text" class="form-control" placeholder="Tên danh mục" name="ten_danh_muc"
                         value="{{ old('ten_danh_muc') ?? $danhMuc->ten_danh_muc }}">
-                    @error('ten_danh_muc')
+                   {{--  @error('ten_danh_muc')
                         <span style="color:red"> {{ $message }}</span>
-                    @enderror
+                    @enderror --}}
                 </div>
             </div>
-            <button type="submit" class="btn btn-outline-primary my-2">Lưu</button>
-            <button type="button" class="btn btn-outline-danger my-2">Hủy</button>
+            <a
+                onclick="if(confirm('Bạn có muốn lưu chỉnh sửa lần này?'))
+                {
+                    Swal.fire({
+                    position: 'top-right',
+                    icon: 'success',
+                    title: 'Lưu thành công',
+                    showConfirmButton: false,
+                    timer: 3000
+                    })
+                }">
+                <button type="submit" class="btn btn-outline-success">Lưu</button>
+            </a>
+            <a onclick="return confirm('Bạn có muốn hủy chỉnh sửa lần này?')"
+            href="{{ route('DanhMuc.dsDanhMuc', ['id' => $danhMuc->id]) }}" class="btn btn-outline-danger">Hủy</a>
         </form>
     @endif
     {{-- Tạo table để load danh sách danh mục --}}
@@ -56,13 +71,13 @@
             <table class="table align-items-center mb-0">
                 <thead>
                     <tr>
-                        <th class="text-center text-uppercase  text-xxs font-weight-bolder">
-                            STT
+                        <th class="text-uppercase text-xxs font-weight-bolder">
+                            #
                         </th>
-                        <th class="text-center text-uppercase  text-xxs font-weight-bolder">
+                        <th class="text-uppercase text-xxs font-weight-bolder">
                             Tên danh mục
                         </th>
-                        <th class=" text-uppercase text-black text-xxs font-weight-bolder">
+                        <th class="text-uppercase text-xxs font-weight-bolder">
                             Chức năng
                         </th>
                     </tr>
@@ -71,17 +86,26 @@
                     {{-- Load danh sách danh mục từ database lên view --}}
                     @foreach ($dsDanhMuc as $key => $value)
                         <tr>
-                            <td class="align-middle text-center ">
+                            <td class="align-middle">
                                 <span class="badge badge-sm bg-gradient-success">{{ $key + 1 }}</span>
                             </td>
-                            <td class="align-middle text-center">
+                            <td class="align-middle">
                                 <span class="text-xs font-weight-bold">{{ $value->ten_danh_muc }}</span>
                             </td>
                             <td class="align-middle">
-                                <a href="{{ route('DanhMuc.suaDanhMuc', ['id' => $value->id]) }}">
-                                    <button type="button" class="btn btn-success">Sửa</button>
+                                <a
+                                    href="{{ route('DanhMuc.suaDanhMuc', ['id' => $value->id]) }}">
+                                    <button type="button" class="btn btn-warning">Sửa</button>
                                 </a>
-                                <a onclick="return confirm('Bạn có chắc chắn muốn xoá {{ $value->ten_danh_muc }}?')"
+                                <a onclick="if(confirm('Bạn có chắc chắn muốn xoá {{ $value->ten_danh_muc }}?'))
+                                    {
+                                            Swal.fire({
+                                            position: 'top-right',
+                                            icon: 'warning',
+                                            title: 'Xóa thành công',
+                                            showConfirmButton: false,
+                                            timer: 3000
+                                            })}"
                                     href="{{ route('DanhMuc.xoaDanhMuc', ['id' => $value->id]) }}"
                                     class="btn btn-danger">Xóa
                                 </a>

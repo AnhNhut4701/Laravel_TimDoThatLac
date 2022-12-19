@@ -50,11 +50,21 @@ Route::middleware('auth')->group(function () {
         // Duyệt bài viết
         Route::prefix('duyetbaiviet')->group(function () {
             Route::name('DuyetBaiViet.')->group(function () {
-                Route::get('/', function () {
-                    return view('BaiViet.duyet-bai-viet');
-                })->name("dsDuyetBaiViet");
+                Route::get('/', [BaiVietController::class, 'dsBaiVietChoDuyet'])->name('dsBaiVietChoDuyet');
+                Route::get('/chi-tiet-bai-viet/{id}', [BaiVietController::class, 'chiTietDuyetBaiViet'])->name('chiTietDuyetBaiViet');
+                Route::get('/duyet-bai-viet/{id}', [BaiVietController::class, 'duyetBaiViet'])->name('duyetBaiViet');
             });
         });
+        // Từ chối duyệt
+        Route::prefix('tuchoiduyet')->group(function () {
+            Route::name('TuChoiDuyet.')->group(function () {
+                Route::get('/', [BaiVietController::class, 'dsBaiVietTuChoiDuyet'])->name('dsBaiVietTuChoiDuyet');
+                Route::get('/chi-tiet-bai-viet/{id}', [BaiVietController::class, 'chiTietTuChoiDuyet'])->name('chiTietTuChoiDuyet');
+                Route::get('/tu-choi-duyet-bai-viet/{id}', [BaiVietController::class, 'tuChoiDuyetBaiViet'])->name('tuChoiDuyetBaiViet');
+                Route::get('/xoa-bai-viet/{id}', [BaiVietController::class, 'xoaBaiVietTuChoiDuyet'])->name('xoaBaiVietTuChoiDuyet');
+            });
+        });
+
         //Tin tức
         Route::prefix('tintuc')->group(function () {
             Route::name('TinTuc.')->group(function () {
@@ -97,6 +107,15 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('nguoidung')->group(function () {
+<<<<<<< HEAD
+        Route::name('TrangChu.')->group(function () {
+            Route::get('/', [TrangChuController::class, 'index'])->name('tinCanTim');
+        });
+    });
+});
+/* auth:admin
+auth: tên guards */
+=======
 
         Route::name('NguoiDung.')->group(function () {
             Route::get('/',[TrangChuController::class ,'index'])->name('trangnguoidung');
@@ -130,3 +149,4 @@ Route::middleware('auth')->group(function () {
 
 });
 
+>>>>>>> 8e21bef62ec24d004e3cb5da7d71c689a3e384f6

@@ -14,8 +14,6 @@
         </script>
     @endif
 @section('content')
-
-
             <div class="posts-list mt-3">
                 @foreach ($dsBaiViet as $value)
                 <div class="posts list">
