@@ -63,6 +63,10 @@ class TrangChuController extends Controller
         $NguoiDung = NguoiDung::where('id', $rqt->id)->first();
         return view("trang-chu.thong-tin-nguoi-dung", compact('NguoiDung') );
       }
-
+      public function dsBaiDang(Request $rqt)
+      {
+        $NguoiDung = NguoiDung::where('id', $rqt->id)->first();
+        return view("trang-chu.danh-sach-bai-dang", compact('NguoiDung') );
+      }
 
 }

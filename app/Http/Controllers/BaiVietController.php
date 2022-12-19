@@ -235,6 +235,124 @@ class BaiVietController extends Controller
         $BaiViet->delete();
         return Redirect::route('BaiViet.dsBaiViet');
     }
+    public function themBaiViet()
+    {
+
+        $BaiViet = BaiViet::all();
+        $NguoiDung = NguoiDung::all();
+        $LoaiBaiViet = LoaiBaiViet::all();
+        $dsHinh = HinhAnhBaiViet::all();
+        $DanhMuc = DanhMuc::all();
+        return view('trang-chu.dang-bai', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+    }
+
+    public function xuLythemBaiViet(StoreBaiVietRequest $request)
+    {
+        $rule = [
+            'tieu_de' => 'required|min:5|max:255',
+            'noi_dung' => 'required|min:5',
+            'khu_vuc' => 'required|min:5|max:100',
+        ];
+        $message = [
+            'required' => ':attribute không được để trống',
+            'min' => ':attribute phải lớn hơn :min ký tự',
+            'max' => ':attribute phải nhỏ hơn :max ký tự',
+        ];
+        $attribute = [
+            'tieu_de' => 'Tiêu đề',
+            'noi_dung' => 'Nội dung',
+            'khu_vuc' => 'Khu vực',
+        ];
+        $request->validate($rule, $message, $attribute);
+
+        $BaiViet = new BaiViet();
+        $BaiViet->fill([
+            'nguoi_dung_id' => Auth::user()->id,
+            'loai_bai_viet_id' => $request->input('loai_bai_viet_id'),
+            'danh_muc_id' => $request->input('danh_muc_id'),
+            'tieu_de' => $request->input('tieu_de'),
+            'noi_dung' => $request->input('noi_dung'),
+            'khu_vuc' => $request->input('khu_vuc'),
+            'trang_thai' => 0,
+            'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+
+        ]);
+
+        $BaiViet->save();
+
+        //Đúng
+        if ($request->hasFile('image')) {
+            $files = $request->file('image');
+            foreach ($files as $file) {
+                $imageName = 'uploads/image_baiviet/' . time() . '.' . $file->getClientOriginalName();
+                $request['bai_viet_id'] = $BaiViet->id;
+                $request['ten_hinh_anh'] = $imageName;
+                $request['trang_thai'] = 1;
+                $file->move('uploads/image_baiviet/', $imageName);
+                HinhAnhBaiViet::create($request->all());
+            }
+        }
+        return Redirect::route('NguoiDung.trangnguoidung', ['id' => $BaiViet->id]);
+    }
+    public function suaBaiViet($id)
+    {
+        $BaiViet = BaiViet::find($id);
+        $NguoiDung = NguoiDung::all();
+        $LoaiBaiViet = LoaiBaiViet::all();
+        $DanhMuc = DanhMuc::all();
+        $dsHinh = HinhAnhBaiViet::where('bai_viet_id', '=', $id)->get();
+        return view('trang-chu.dang-bai', ['BaiViet' => $BaiViet, 'NguoiDung' => $NguoiDung, 'LoaiBaiViet' => $LoaiBaiViet, 'DanhMuc' => $DanhMuc, 'dsHinh' => $dsHinh]);
+
+    }
+    public function xuLySuaBaiViet(Request $request, $id)
+    {
+        //Đúng
+        $BaiViet = BaiViet::find($id);
+        $BaiViet->fill([
+            'id' => $request->input('id'),
+            'loai_bai_viet_id' => $request->input('loai_bai_viet_id'),
+            'danh_muc_id' => $request->input('danh_muc_id'),
+            'tieu_de' => $request->input('tieu_de'),
+            'noi_dung' => $request->input('noi_dung'),
+            'khu_vuc' => $request->input('khu_vuc'),
+            'trang_thai' => 1,
+            'updated_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+        ]);
+        $BaiViet->save();
+
+        $dsHinh = HinhAnhBaiViet::where('bai_viet_id', '=', $id)->get();
+
+
+        foreach ($dsHinh as $hinh) {
+            if ($request->hasFile('image')) {
+                $files = $request->file('image');
+                foreach ($files as $file) {
+                    $imageName = 'uploads/image_baiviet/' . time() . '.' . $file->getClientOriginalName();
+                    $request['bai_viet_id'] = $BaiViet->id;
+                    $request['ten_hinh_anh'] = $imageName;
+                    $request['trang_thai'] = 1;
+                    $file->move('uploads/image_baiviet/', $imageName);
+                    HinhAnhBaiViet::create($request->all());
+                }
+            }
+
+        }
+        if ($request->hasFile('image')) {
+            for ($i = 0; $i < count($request->file('image')); $i++) {
+                $files = $request->file('image');
+                foreach ($files as $file) {
+                    $imageName = 'uploads/image_baiviet/' . time() . '.' . $file->getClientOriginalName();
+                    $request['bai_viet_id'] = $BaiViet->id;
+                    $request['ten_hinh_anh'] = $imageName;
+                    $request['trang_thai'] = 1;
+                    $file->move('uploads/image_baiviet/', $imageName);
+                    HinhAnhBaiViet::create($request->all());
+                }
+            }
+        }
+        return Redirect::route('trang-chu.dang-bai', ['id' => $BaiViet->id]);
+
+    }
 
     public function dsBaiVietChoDuyet()
     {

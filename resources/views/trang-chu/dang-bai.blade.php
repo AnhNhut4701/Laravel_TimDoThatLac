@@ -3,7 +3,7 @@
 
 @section('content')
     @parent
-    <form action="{{ route('BaiViet.themBaiViet') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('DangTin.themBaiViet') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
             <div class="col">
@@ -74,7 +74,7 @@
 
         <div class="align-middle text-end">
             <button type="submit" class="btn btn-outline-success ">Thêm</button>
-            <button type="button" class="btn btn-outline-danger">Hủy</button>
+            <button type="button" class="btn btn-outline-danger"><a href="{{ route('NguoiDung.trangnguoidung') }}">Hủy</a></button>
         </div>
     </form>
     </div>

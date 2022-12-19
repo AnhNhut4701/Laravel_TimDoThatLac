@@ -107,6 +107,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('nguoidung')->group(function () {
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf03c198711a161f8a5abc27d14dc72effe14c6f
         Route::name('NguoiDung.')->group(function () {
             Route::get('/',[TrangChuController::class ,'index'])->name('trangnguoidung');
          });
@@ -129,7 +133,22 @@ Route::middleware('auth')->group(function () {
            Route::get('/dangbai',[TrangChuController::class ,'dangbai'])->name('DangBai');
            Route::get('baiviet/{id}',[TrangChuController::class ,'chitiet'])->name('ChiTiet');
            Route::get('thongtinnguoidung/{id}',[TrangChuController::class,'thongtinnguoidung'])->name('ThongTinNguoiDung');
+           Route::get('danhsachbaidang/{id}',[TrangChuController::class,'dsBaiDang'])->name('danhSachBaiDang');
         });
     });
+<<<<<<< HEAD
+=======
+     //Dang tin
+     Route::prefix('dangtin')->group(function () {
+        Route::name('DangTin.')->group(function () {
+            Route::get('/sua-bai-viet/{id}', [BaiVietController::class, 'suaBaiViet'])->name('suaBaiViet');
+            Route::patch('/sua-bai-viet/{id}', [BaiVietController::class, 'xuLySuaBaiViet'])->name('suaBaiVietPatch');
+            Route::get('/them-bai-viet', [BaiVietController::class, 'themBaiViet'])->name('themBaiViet');
+            Route::post('/them-bai-viet', [BaiVietController::class, 'xuLyThemBaiViet'])->name('themBaiVietPost');
+            //load danh sách xoá mềm
+        });
+    });
+
+>>>>>>> bf03c198711a161f8a5abc27d14dc72effe14c6f
 });
 
