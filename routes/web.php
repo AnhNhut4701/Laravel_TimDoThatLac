@@ -107,17 +107,16 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('nguoidung')->group(function () {
+<<<<<<< HEAD
+=======
 
+>>>>>>> bf03c198711a161f8a5abc27d14dc72effe14c6f
         Route::name('NguoiDung.')->group(function () {
             Route::get('/',[TrangChuController::class ,'index'])->name('trangnguoidung');
-
-
          });
-
     });
 
     Route::prefix('timkiem')->group(function () {
-
         Route::name('TrangChu.')->group(function () {
            Route::get('/tincantim',[TrangChuController::class ,'tincantim'])->name('TinCanTim');
            Route::get('/tinnhatduoc',[TrangChuController::class ,'tinnhatduoc'])->name('TinNhatDuoc');
@@ -137,8 +136,9 @@ Route::middleware('auth')->group(function () {
            Route::get('thongtinnguoidung/{id}',[TrangChuController::class,'thongtinnguoidung'])->name('ThongTinNguoiDung');
            Route::get('danhsachbaidang/{id}',[TrangChuController::class,'dsBaiDang'])->name('danhSachBaiDang');
         });
-
     });
+<<<<<<< HEAD
+=======
      //Dang tin
      Route::prefix('dangtin')->group(function () {
         Route::name('DangTin.')->group(function () {
@@ -150,5 +150,6 @@ Route::middleware('auth')->group(function () {
         });
     });
 
+>>>>>>> bf03c198711a161f8a5abc27d14dc72effe14c6f
 });
 

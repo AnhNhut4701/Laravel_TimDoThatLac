@@ -41,16 +41,26 @@ class AppServiceProvider extends ServiceProvider
         View::share('dsBaiDang', $dsBaiDang);
 
         //danh sách đồ được nhặt
-        $dsTinNhatDo = BaiViet::all()->where('loai_bai_viet_id','=','1')->where('trang_thai','=','1');
+        $dsTinNhatDo = BaiViet::all()
+        ->where('loai_bai_viet_id','=','1')
+        ->where('trang_thai','=','1')
+        ->sortDesc();
         View::share('dsTinNhatDo', $dsTinNhatDo);
 
         //danh sách đồ mất
-        $dsTinMatDo= BaiViet::all()->where('loai_bai_viet_id','=','2')->where('trang_thai','=','1');
+        $dsTinMatDo= BaiViet::all()
+        ->where('loai_bai_viet_id','=','2')
+        ->where('trang_thai','=','1')
+        ->sortDesc();
         View::share('dsTinMatDo', $dsTinMatDo);
 
         // danh sách bài viết
+<<<<<<< HEAD
+        $dsBaiViet=BaiViet::all()->sortDesc();
+=======
 
         $dsBaiViet=BaiViet::all()->where('trang_thai','=','1');
+>>>>>>> bf03c198711a161f8a5abc27d14dc72effe14c6f
         View::share('dsBaiViet', $dsBaiViet);
 
         // chi tiết bài viết
@@ -61,15 +71,27 @@ class AppServiceProvider extends ServiceProvider
         // ->select('nguoi_dungs.ho_ten', 'loai_bai_viets.ten_bai_viet', 'danh_mucs.ten_danh_muc', 'tieu_de', 'bai_viets.noi_dung', 'danh_muc_id', 'khu_vuc', 'bai_viets.created_at', 'bai_viets.updated_at')
         // View::share('ctBaiViet', $ctBaiViet);
 
+<<<<<<< HEAD
+
+        $ctBaiViet = BaiViet::all();
+        View::share('ctBaiViet', $ctBaiViet);
+        //danh sách mẹo vặt
+        $dsMeoVat=TinTuc::all()
+        ->where('loai_tin_tuc_id','=','1')
+        ->sortDesc();
+=======
          $ctBaiViet = BaiViet::join('hinh_anh_bai_viets', 'hinh_anh_bai_viets.id', '=', 'bai_viets.id')
          ->select('bai_viets.tieu_de','hinh_anh_bai_viets.ten_hinh_anh');
          View::share('ctBaiViet', $ctBaiViet);
         //danh sách meo vat
         $dsMeoVat=TinTuc::all()->where('loai_tin_tuc_id','=','1');
+>>>>>>> bf03c198711a161f8a5abc27d14dc72effe14c6f
         View::share('dsMeoVat', $dsMeoVat);
 
         // danh sách lừa đảo
-        $dsLuaDao=TinTuc::all()->where('loai_tin_tuc_id','=','2');
+        $dsLuaDao=TinTuc::all()
+        ->where('loai_tin_tuc_id','=','2')
+        ->sortDesc();
         View::share('dsLuaDao', $dsLuaDao);
 
         //$dsBaiViet = BaiViet::all()->where('loai_bai_viet_id','=','1')->where('trang_thai','=','1');
