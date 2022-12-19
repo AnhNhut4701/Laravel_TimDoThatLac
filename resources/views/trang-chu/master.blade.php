@@ -56,7 +56,6 @@
                                         <div class="u-img"><img src=" {{ asset(Auth::user()->anh_dai_dien )  }}" alt="user"></div>
                                         <div class="u-text">
                                             <h4>{{ Auth::user()->ho_ten }}</h4>
-
                                             {{-- <span class="label label-warning">Tài khoản: <sup>đ</sup></span> --}}
                                         </div>
                                     </div>

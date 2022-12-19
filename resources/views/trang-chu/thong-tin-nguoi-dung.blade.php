@@ -16,12 +16,13 @@
                                 $hinhAnh = "assets/images/users/1.jpg";
                             @endphp
 
-                            @if (!empty($NguoiDung->hinh_dai_dien))
+                            @if (!empty($NguoiDung->anh_dai_dien))
                                 @php
-                                $hinhAnh = $NguoiDung->hinh_dai_dien;
+                                $hinhAnh = $NguoiDung->anh_dai_dien;
                                 @endphp
                             @endif
-                            <img src="{{ asset($hinhAnh) }}" alt="{{ $NguoiDung->ho_ten}}" />
+                            <img src="{{ asset($hinhAnh) }}" alt="{{ $NguoiDung->ho_ten}}" height="400" width="400"/>
+
                             <h1>{{ $NguoiDung->ho_ten }}</h1>
                             {{-- <img src="{{ asset($hinhAnh) }}" alt="{{ $BaiViet->tieu_de }}" /> --}}
 
@@ -62,6 +63,7 @@
                     <h5>Số điện thoại: {{ $NguoiDung->so_dien_thoai }}</h5><br>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
