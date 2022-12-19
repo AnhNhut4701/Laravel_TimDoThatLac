@@ -63,6 +63,8 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('TrangChu.ThongTinNguoiDung',(Auth::user()->id )) }}"><i class="material-icons">account_circle</i> Quản lý tài khoản</a></li>
                                 <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('TrangChu.danhSachBaiDang',(Auth::user()->id )) }}"><i class="material-icons">view_list</i> Xem bài đăng</a></li>
+                                <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('TrangChu.DangBai') }}"><i class="material-icons">view_list</i> Đăng bài</a></li>
 
                                 <li role="separator" class="divider"></li>
