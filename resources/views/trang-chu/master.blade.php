@@ -48,7 +48,7 @@
                     <ul class="right">
                         <li>
                             <a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown">
-                                <img src="{{ asset('assets/images/users/2.jpg') }}" alt="user" class="circle profile-pic">
+                                <img src="{{ asset(Auth::user()->anh_dai_dien) }}" alt="user" class="circle profile-pic">
                             </a>
                             <ul id="user_dropdown" class="mailbox dropdown-content dropdown-user">
                                 <li>

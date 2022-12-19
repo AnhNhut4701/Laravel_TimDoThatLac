@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BaiViet;
+use App\Models\TinTuc;
 use App\Models\DanhMuc;
 use App\Models\HinhAnhBaiViet;
 use App\Models\LoaiBaiViet;
@@ -34,11 +35,11 @@ class TrangChuController extends Controller
       }
       public function canhbaoluadao()
       {
-        return view('TinTuc.canh-bao-lua-dao');
+        return view('trang-chu.canh-bao-lua-dao');
       }
       public function cacmeovat()
       {
-        return view('TinTuc.cac-meo-vat');
+        return view('trang-chu.meo-vat');
       }
       public function chitietbaiviet()
       {
@@ -57,6 +58,11 @@ class TrangChuController extends Controller
       {
         $BaiViet = BaiViet::where('id', $id->id)->first();
         return view("trang-chu.product",compact('BaiViet') );
+      }
+      public function chiTietTinTuc(Request $id)
+      {
+        $TinTuc = TinTuc::where('id', $id->id)->first();
+        return view("trang-chu.ct-tin-tuc",compact('TinTuc') );
       }
       public function thongtinnguoidung(Request $rqt)
       {

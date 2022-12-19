@@ -133,6 +133,7 @@ Route::middleware('auth')->group(function () {
            Route::get('/cacmeovat',[TrangChuController::class ,'cacmeovat'])->name('CacMeoVat');
            Route::get('/dangbai',[TrangChuController::class ,'dangbai'])->name('DangBai');
            Route::get('baiviet/{id}',[TrangChuController::class ,'chitiet'])->name('ChiTiet');
+           Route::get('tintuc/{id}',[TrangChuController::class ,'chiTietTinTuc'])->name('ChiTietTinTuc');
            Route::get('thongtinnguoidung/{id}',[TrangChuController::class,'thongtinnguoidung'])->name('ThongTinNguoiDung');
            Route::get('danhsachbaidang/{id}',[TrangChuController::class,'dsBaiDang'])->name('danhSachBaiDang');
         });

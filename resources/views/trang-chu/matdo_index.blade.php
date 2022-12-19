@@ -25,7 +25,7 @@
                                 <div class="el-overlay">
                                     <ul class="el-info">
                                         <li><a class="btn-floating image-popup-vertical-fit" style="display: none" href="{{ asset($hinhAnh) }}"></a></li>
-                                        {{-- <li><a class="btn-floating" href="{{ route('dich-vu', ['sSlug' => $service->slug]) }}"><i class="material-icons">link</i></a></li> --}}
+                                        <li><a class="btn-floating" href="{{ route('TrangChu.ChiTiet',$value->id) }}"><i class="material-icons">link</i></a></li>
                                     </ul>
                                 </div>
                             </div>

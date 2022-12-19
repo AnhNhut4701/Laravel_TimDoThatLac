@@ -20,9 +20,12 @@
                 <li>
                     <a href="{{ route('TrangChu.TinNhatDuoc') }}" class="collapsible-header"><i class="material-icons">view_list</i><span class="hide-menu">Tin Nhặt Đồ</span></a>
                 </li>
-                {{-- <li>
-                    <a href="{{ route('TrangChu.TinCanTim') }}" class="collapsible-header"><i class="material-icons">assignment</i><span class="hide-menu">Tin Mất Đồ</span></a>
-                </li> --}}
+                <li>
+                    <a href="{{ route('TrangChu.CanhBaoLuaDao') }}" class="collapsible-header"><i class="material-icons">assignment</i><span class="hide-menu">Cảnh Báo Lừa Đảo</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('TrangChu.CacMeoVat') }}" class="collapsible-header"><i class="material-icons">assignment</i><span class="hide-menu">Meo vặt</span></a>
+                </li>
                 {{-- <li>
                     <a href="{{ route('nap-tien') }}" class="collapsible-header"><i class="material-icons">attach_money</i><span class="hide-menu">Nạp Tiền</span></a>
                 </li> --}}

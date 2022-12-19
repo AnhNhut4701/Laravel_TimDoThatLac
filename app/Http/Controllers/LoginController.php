@@ -18,8 +18,13 @@ class LoginController extends Controller
     public function index()
     {
 
+
+
+
+            return view('trang-chu.index');
+
         //return view("TimKiem.tin-can-tim");
-        return view('trang-chu.index');
+
         //return view('Trangchu.trang-chu-nguoi-dung');
     }
 

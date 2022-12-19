@@ -10,7 +10,7 @@
     <div>
     <div class="container-fluid m-t-20">
         <div class="row el-element-overlay">
-            @foreach ($dsTinNhatDo as $value)
+            @foreach ($dsLuaDao as $value)
             <div class="col m6 l3 s12">
                 <div class="card">
                     <div class="card-image">
@@ -25,7 +25,7 @@
                                 <div class="el-overlay">
                                     <ul class="el-info">
                                         <li><a class="btn-floating image-popup-vertical-fit" style="display: none" href="{{ asset($hinhAnh) }}"></a></li>
-                                        <li><a class="btn-floating" href="{{ route('TrangChu.ChiTiet',$value->id) }}"><i class="material-icons">link</i></a></li>
+                                        <li><a class="btn-floating" href="{{ route('TrangChu.ChiTietTinTuc',$value->id) }}"><i class="material-icons">link</i></a></li>
                                     </ul>
                                 </div>
                             </div>
